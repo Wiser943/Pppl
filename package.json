@@ -1,0 +1,13 @@
+{
+  "name": "my-payment-project",
+  "version": "1.0.0",
+  "scripts": {
+    "seed:mongodb": "node seed-mongodb.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "https-proxy-agent": "^7.0.0",
+    "md5": "^2.3.0",
+    "mongodb": "^7.6.0"
+  }
+}

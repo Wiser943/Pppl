@@ -1,0 +1,17 @@
+{
+  "products": [],
+  "adminSettings": {
+    "globals": {
+      "welcomeBonus": 0
+    },
+    "rates": {
+      "level1": 0.25,
+      "level2": 0.02
+    },
+    "settings": {
+      "withdrawalEnabled": true,
+      "minimumWithdrawal": 1000,
+      "withdrawalFee": 0.15
+    }
+  }
+}

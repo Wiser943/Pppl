@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <title>T DRIVE AFRICA</title>
+
+  <meta property="og:title" content="T DRIVE AFRICA | Secure Investment Opportunities">
+  <meta property="og:description" content="Join T DRIVE AFRICA today for professional, reliable, and high-growth investment plans tailored for your financial success.">
+  <meta property="og:url" content="#">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="T DRIVE AFRICA ">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="T DRIVE AFRICA | Investment">
+  <meta name="twitter:description" content="Professional investment plans designed for your financial growth.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="catalog-products.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+
+</head>
+<body>
+ 
+<!-- Custom Alert Container -->
+<div id="customAlert" class="custom-alert"></div>
+
+
+
+<div id="pageLoader" style="display: none;">
+ 
+  
+  <div class="cyber-container">
+    <div class="loader-content">
+      
+      <!-- Compact Concentric Rings -->
+      <div class="neon-ring">
+        <div class="ring-spinner-outer"></div>
+        <div class="ring-spinner-inner"></div>
+      </div>
+      
+      <!-- Text & Progress Bar -->`
+      <h3 class="processing-title">T DRIVE AFRICA...</h3>
+      
+      <div class="scan-line-wrapper">
+        <div class="scan-line"></div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+    <style>
+        :root {
+            --auth-green: #22e04a;
+            --auth-line: #1fd147;
+            --auth-card: rgba(4, 20, 8, 0.55);
+            --auth-field: rgba(0, 0, 0, 0.35);
+            --auth-font: "Century Gothic", "Questrial", "Avenir Next", Futura, "Trebuchet MS", sans-serif;
+        }
+
+        /* Dark canvas + glowing ribbons (only while logged out) */
+        body:not(.logged-in) { background: #03030a; }
+        .auth-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+        body.logged-in .auth-bg { display: none; }
+        .auth-ribbon {
+            position: absolute; border-radius: 999px; border: 26px solid transparent;
+            background: linear-gradient(#03030a, #03030a) padding-box,
+                        linear-gradient(135deg, #0d5a20, #2bff5c 45%, #0a3d16) border-box;
+            filter: blur(1.5px) drop-shadow(0 0 30px rgba(34, 224, 74, .55)); opacity: .9;
+        }
+        .auth-r1 { width: 520px; height: 220px; top: 6%; right: -160px; transform: rotate(28deg); }
+        .auth-r2 { width: 640px; height: 200px; bottom: 2%; left: -260px; transform: rotate(38deg); }
+        .auth-r3 { width: 340px; height: 340px; top: 38%; left: -170px; border-width: 22px; }
+        .auth-r4 { width: 280px; height: 280px; bottom: 20%; right: -150px; border-width: 22px; }
+
+        /* Containers (JS toggles display + .active) */
+        .honda-auth-container {
+            display: none; position: relative; z-index: 1;
+            width: calc(100% - 32px); max-width: 400px; margin: 5vh auto;
+            opacity: 0; transform: translateY(6px);
+            transition: opacity .3s ease, transform .3s ease;
+            font-family: var(--auth-font);
+        }
+        .honda-auth-container.active { display: block; opacity: 1; transform: none; }
+
+        .fieldmark-card {
+            background: var(--auth-card); color: var(--auth-green);
+            border: 1.5px solid rgba(34, 224, 74, .55); border-radius: 44px;
+            padding: 36px 28px 30px;
+            backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2);
+            box-shadow: 0 0 40px rgba(34, 224, 74, .12), inset 0 0 40px rgba(34, 224, 74, .05);
+        }
+
+        .fieldmark-header { text-align: center; margin-bottom: 26px; }
+        .fieldmark-logo-wrapper { display: flex; flex-direction: column; align-items: center; margin-bottom: 18px; }
+        .fieldmark-logo-wrapper svg { width: 74px; height: auto; }
+        .fieldmark-logo-circle { display: block; margin-top: 4px; }
+        .logo-icon { font-size: 25px; letter-spacing: 1px; color: var(--auth-green); }
+        .logo-text { font-size: 13px; letter-spacing: 6px; color: var(--auth-green); opacity: .8; display: block; }
+        .fieldmark-title {
+            margin: 0; font-size: 27px; font-weight: 700; letter-spacing: 1.2px;
+            color: var(--auth-green); text-shadow: 0 0 14px rgba(34, 224, 74, .35);
+        }
+
+        .fieldmark-form { display: flex; flex-direction: column; gap: 18px; }
+        .fieldmark-input-group label { display: block; font-size: 16px; margin: 0 0 8px 14px; color: var(--auth-green); }
+
+        .fieldmark-field-box {
+            display: flex; align-items: center; height: 56px; padding: 0 8px 0 16px;
+            background: var(--auth-field); border: 1.6px solid var(--auth-line); border-radius: 14px;
+            transition: box-shadow .2s, border-color .2s;
+        }
+        .fieldmark-field-box:focus-within { border-color: #5dff85; box-shadow: 0 0 0 3px rgba(34, 224, 74, .3), 0 0 18px rgba(34, 224, 74, .35); }
+        .field-icon-badge { width: 22px; height: 22px; margin-right: 10px; flex-shrink: 0; display: flex; align-items: center; }
+        .field-icon-badge svg, .toggle-pwd-btn svg {
+            width: 100%; height: 100%; fill: none; stroke: var(--auth-green); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .country-prefix { color: var(--auth-green); opacity: .8; margin-right: 8px; font-size: 16px; }
+        .fieldmark-field-box input {
+            flex: 1; min-width: 0; height: 100%; border: 0; outline: 0; background: transparent;
+            font: inherit; font-size: 16px; color: #b9ffc8;
+        }
+        .fieldmark-field-box input::placeholder { color: rgba(34, 224, 74, .45); }
+        .toggle-pwd-btn { width: 40px; height: 40px; padding: 9px; border: 0; background: none; cursor: pointer; flex-shrink: 0; }
+
+        .forgot-pass-wrapper { margin: -6px 0 0 14px; }
+        .forgot-pass-link { font-size: 16px; color: var(--auth-green); text-decoration: none; }
+        .forgot-pass-link:hover { text-decoration: underline; }
+
+        .fieldmark-btn-submit {
+            height: 56px; margin-top: 4px; font: inherit; font-size: 24px; font-weight: 700; letter-spacing: 1.5px;
+            color: #2bff5c; text-shadow: 0 2px 6px rgba(0, 0, 0, .6); cursor: pointer;
+            background: linear-gradient(180deg, rgba(40, 170, 80, .65), rgba(20, 110, 45, .55));
+            border: 1.6px solid var(--auth-line); border-radius: 14px;
+            transition: transform .15s, box-shadow .2s;
+        }
+        .fieldmark-btn-submit:hover { box-shadow: 0 0 24px rgba(34, 224, 74, .45); }
+        .fieldmark-btn-submit:active { transform: scale(.98); }
+
+        .fieldmark-divider { text-align: center; font-size: 14px; opacity: .7; display: flex; align-items: center; gap: 12px; }
+        .fieldmark-divider::before, .fieldmark-divider::after { content: ""; flex: 1; height: 1px; background: rgba(34, 224, 74, .35); }
+        .fieldmark-google-btn {
+            height: 52px; display: flex; align-items: center; justify-content: center; gap: 10px;
+            font: inherit; font-size: 16px; color: var(--auth-green); cursor: pointer;
+            background: transparent; border: 1.6px solid rgba(34, 224, 74, .55); border-radius: 14px;
+        }
+        .fieldmark-google-btn:hover { background: rgba(34, 224, 74, .08); }
+        .fieldmark-google-btn img { width: 20px; height: 20px; }
+
+        .fieldmark-switch-action { text-align: center; font-size: 17px; margin-top: 34px; color: var(--auth-green); }
+        .fieldmark-link-btn { background: none; border: 0; font: inherit; font-weight: 700; color: #2bff5c; cursor: pointer; padding: 0 0 0 4px; }
+        .fieldmark-link-btn:hover { text-decoration: underline; }
+
+        .fieldmark-btn-submit:focus-visible, .fieldmark-google-btn:focus-visible,
+        .fieldmark-link-btn:focus-visible, .forgot-pass-link:focus-visible { outline: 3px solid #a4ffbb; outline-offset: 3px; }
+        @media (max-width: 400px) { .fieldmark-card { padding: 30px 18px 26px; border-radius: 36px; } .fieldmark-title { font-size: 24px; } }
+        @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+    </style>
+
+    <!-- Glowing ribbon background -->
+    <div class="auth-bg" aria-hidden="true">
+        <div class="auth-ribbon auth-r1"></div><div class="auth-ribbon auth-r2"></div>
+        <div class="auth-ribbon auth-r3"></div><div class="auth-ribbon auth-r4"></div>
+    </div>
+
+    <!-- Login Container -->
+    <div class="honda-auth-container active" id="loginContainer">
+        <div class="fieldmark-card">
+
+            <div class="fieldmark-header">
+                <div class="fieldmark-logo-wrapper">
+                    <svg viewBox="0 0 90 110" fill="none" stroke="#1fd147" stroke-width="2" aria-hidden="true">
+                            <rect x="34" y="6" width="26" height="58" rx="13" transform="rotate(45 47 35)" fill="rgba(34,224,74,.08)"/>
+                            <rect x="28" y="46" width="26" height="58" rx="13" transform="rotate(45 41 75)" fill="rgba(34,224,74,.08)"/>
+                        </svg>
+                    <div class="fieldmark-logo-circle">
+                        <span class="logo-icon">T DRIVE</span>
+                        <span class="logo-text">AFRICA</span>
+                    </div>
+                </div>
+                <h2 class="fieldmark-title">Welcome Back</h2>
+            </div>
+
+            <form id="loginForm" class="fieldmark-form">
+                <div class="fieldmark-input-group">
+                    <label for="loginNumber">Phone Number</label>
+                    <div class="fieldmark-field-box">
+                        <div class="field-icon-badge">
+                            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <span class="country-prefix">+234</span>
+                        <input type="text" id="loginNumber" placeholder="Enter your phone number" required>
+                    </div>
+                </div>
+
+                <div class="fieldmark-input-group">
+                    <label for="loginPassword">Password</label>
+                    <div class="fieldmark-field-box">
+                        <div class="field-icon-badge">
+                            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        </div>
+                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                        <button type="button" class="toggle-pwd-btn" onclick="togglePassword('loginPassword', this)">
+                            <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="forgot-pass-wrapper">
+                    <a href="#" class="forgot-pass-link">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="fieldmark-btn-submit">Log In</button>
+
+                <div class="fieldmark-divider"><span>OR</span></div>
+
+                <button type="button" class="fieldmark-google-btn" id="googleLoginBtn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google">
+                    Continue with Google
+                </button>
+            </form>
+
+            <div class="fieldmark-switch-action">
+                <span>Are You New Member ?</span>
+                <button class="fieldmark-link-btn" onclick="showSignup()">Sign Up</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Container -->
+    <div class="honda-auth-container" id="signupContainer">
+        <div class="fieldmark-card">
+
+            <div class="fieldmark-header">
+                <div class="fieldmark-logo-wrapper">
+                    <svg viewBox="0 0 90 110" fill="none" stroke="#1fd147" stroke-width="2" aria-hidden="true">
+                            <rect x="34" y="6" width="26" height="58" rx="13" transform="rotate(45 47 35)" fill="rgba(34,224,74,.08)"/>
+                            <rect x="28" y="46" width="26" height="58" rx="13" transform="rotate(45 41 75)" fill="rgba(34,224,74,.08)"/>
+                        </svg>
+                    <div class="fieldmark-logo-circle">
+                        <span class="logo-icon">T DRIVE</span>
+                        <span class="logo-text">AFRICA</span>
+                    </div>
+                </div>
+                <h2 class="fieldmark-title">Create an Account</h2>
+            </div>
+
+            <form id="signupForm" class="fieldmark-form">
+                <div class="fieldmark-input-group">
+                    <label for="number">Phone Number</label>
+                    <div class="fieldmark-field-box">
+                        <div class="field-icon-badge">
+                            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <span class="country-prefix">+234</span>
+                        <input type="text" id="number" maxlength="11" placeholder="Enter your phone number" required>
+                    </div>
+                </div>
+
+                <div class="fieldmark-input-group">
+                    <label for="password">Password</label>
+                    <div class="fieldmark-field-box">
+                        <div class="field-icon-badge">
+                            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        </div>
+                        <input type="password" id="password" placeholder="Create password (min 8 characters)" required>
+                        <button type="button" class="toggle-pwd-btn" onclick="togglePassword('password', this)">
+                            <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="fieldmark-input-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="fieldmark-field-box">
+                        <div class="field-icon-badge">
+                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                        <button type="button" class="toggle-pwd-btn" onclick="togglePassword('confirmPassword', this)">
+                            <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="fieldmark-input-group">
+                    <label for="referral">Invitation Code (Optional)</label>
+                    <div class="fieldmark-field-box">
+                        <div class="field-icon-badge">
+                            <svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                        </div>
+                        <input type="text" id="referral" placeholder="Enter referral code if any">
+                    </div>
+                </div>
+
+                <button type="submit" class="fieldmark-btn-submit">Register Now</button>
+
+                <div class="fieldmark-divider"><span>OR</span></div>
+
+                <button type="button" class="fieldmark-google-btn" id="googleSignupBtn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google">
+                    Continue with Google
+                </button>
+            </form>
+
+            <div class="fieldmark-switch-action">
+                <span>Already have an account?</span>
+                <button class="fieldmark-link-btn" onclick="showLogin()">Log In</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showLogin() {
+            const loginContainer = document.getElementById('loginContainer');
+            const signupContainer = document.getElementById('signupContainer');
+
+            signupContainer.classList.remove('active');
+            setTimeout(() => {
+                signupContainer.style.display = 'none';
+                loginContainer.style.display = 'block';
+                setTimeout(() => loginContainer.classList.add('active'), 20);
+            }, 150);
+        }
+
+        function showSignup() {
+            const loginContainer = document.getElementById('loginContainer');
+            const signupContainer = document.getElementById('signupContainer');
+
+            loginContainer.classList.remove('active');
+            setTimeout(() => {
+                loginContainer.style.display = 'none';
+                signupContainer.style.display = 'block';
+                setTimeout(() => signupContainer.classList.add('active'), 20);
+            }, 150);
+        }
+
+        function togglePassword(inputId, btn) {
+            const input = document.getElementById(inputId);
+            const isPassword = input.type === 'password';
+            input.type = isPassword ? 'text' : 'password';
+
+            const eyeOpen = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>`;
+            const eyeOff = `<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>`;
+
+            btn.querySelector('svg').innerHTML = isPassword ? eyeOff : eyeOpen;
+        }
+    </script>
+
+<!-- <div class="honda-auth-container active" id="loginContainer">
+    <div class="fieldmark-card">
+        
+        <div class="fieldmark-header">
+            <div class="fieldmark-logo-wrapper">
+                <div class="fieldmark-logo-circle">
+                    <span class="logo-icon">VIRAL</span>
+                    <span class="logo-text">PLAY</span>
+                </div>
+            </div>
+            <h2 class="fieldmark-title">Viral Play</h2>
+        </div>
+
+        <form id="loginForm" class="fieldmark-form">
+            <div class="fieldmark-input-group">
+                <label for="loginNumber">Phone Number</label>
+                <div class="fieldmark-field-box">
+                    <input type="text" id="loginNumber" placeholder="Enter your phone number" required>
+                </div>
+            </div>
+
+            <div class="fieldmark-input-group">
+                <label for="loginPassword">Password</label>
+                <div class="fieldmark-field-box">
+                    <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                </div>
+            </div>
+
+
+            <div class="fieldmark-divider"><span>OR</span></div>
+<button type="button" class="fieldmark-google-btn" id="googleLoginBtn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google">
+    Continue with Google
+</button>
+
+            <button type="submit" class="fieldmark-btn-submit">Log In</button>
+        </form>
+
+        <div class="fieldmark-switch-action">
+            <span>Are You New Member ?</span>
+            <button class="fieldmark-link-btn" onclick="showSignup()">Sign Up</button>
+        </div>
+    </div>
+</div> -->
+
+<!-- <div class="honda-auth-container" id="signupContainer">
+    <div class="fieldmark-card">
+        
+        <div class="fieldmark-header">
+            <div class="fieldmark-logo-wrapper">
+                <div class="fieldmark-logo-circle">
+                    <span class="logo-icon">VIRAL</span>
+                    <span class="logo-text">PLAY</span>
+                </div>
+            </div>
+            <h2 class="fieldmark-title">Create an Account</h2>
+        </div>
+
+        <form id="signupForm" class="fieldmark-form">
+            
+            <div class="fieldmark-input-group">
+                <label for="number">Phone Number</label>
+                <div class="fieldmark-field-box">
+                    <input type="text" id="number" maxlength="11" placeholder="Enter your phone number" required>
+                </div>
+            </div>
+
+            <div class="fieldmark-input-group">
+                <label for="password">Password</label>
+                <div class="fieldmark-field-box">
+                    <input type="password" id="password" placeholder="Create password (min 8 characters)" required>
+                </div>
+            </div>
+
+            <div class="fieldmark-input-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <div class="fieldmark-field-box">
+                    <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                </div>
+            </div>
+
+            <div class="fieldmark-input-group">
+                <label for="referral">Invitation Code (Optional)</label>
+                <div class="fieldmark-field-box">
+                    <input type="text" id="referral" placeholder="Enter referral code if any">
+                </div>
+            </div>
+
+            <div class="fieldmark-divider"><span>OR</span></div>
+<button type="button" class="fieldmark-google-btn" id="googleSignupBtn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google">
+    Continue with Google
+</button>
+
+            <button type="submit" class="fieldmark-btn-submit">Register Now</button>
+        </form>
+
+        <div class="fieldmark-switch-action">
+            <span>Already have an account?</span>
+            <button class="fieldmark-link-btn" onclick="showLogin()">Log In</button>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- DASHBOARD -->
+<div class="dashboard" id="dashboard">
+
+
+  <header class="mx-vanta-navbar">
+  
+  <div class="mx-vanta-left">
+    <div class="mx-vanta-badge">
+      <div class="mx-vanta-shape">
+        <!-- <span class="mx-vanta-bar"></span>
+        <span class="mx-vanta-bar"></span> -->
+        <i class="fa-solid fa-play"></i>
+      </div>
+    </div>
+    <div class="mx-vanta-meta">
+      <h1 class="mx-vanta-title">T DRIVE AFRICA</h1>
+      <p class="mx-vanta-subtitle">INDUSTRIES LIMITED</p>
+    </div>
+  </div>
+
+  <div class="mx-vanta-right">
+    <a href="#profile" class="mx-vanta-bell" id="headerProfileTrigger" aria-label="Notifications">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+      </svg>
+    </a>
+  </div>
+  
+</header>
+
+<div class="flyer-container">
+  <div class="balance-flyer">
+    
+    <div class="flyer-track" id="flyerTrack">
+      <img src="LOGO.jpg" class="flyer-card" alt="Premium Card 1">
+      <img src="flyer.jpg" class="flyer-card" alt="Premium Card 2">
+      <!-- <img src="logo.jpg" class="flyer-card" alt="Premium Card 3"> -->
+    </div>
+    
+    <div class="flyer-overlay"></div>
+    
+  </div>
+</div>
+
+
+<div class="main-container">
+  <div class="mx-menu-wrapper">
+    <div class="action-grid">
+      
+      <div class="action-card" id="mainRechargeTrigger">
+        <div class="mx-circle-badge bg-vanta-metallic">
+          <svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+        </div>
+        <span class="action-text">Deposit</span>
+      </div>
+
+      <div class="action-card" id="withdrawBtn" style="background-color:red;">
+        <div class="mx-circle-badge bg-vanta-metallic">
+          <svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>  
+        </div>
+        <span class="action-text">Withdraw</span>
+      </div>
+
+      <div class="action-card" id="refCard" style="background-color:blue;">
+        <div class="mx-circle-badge bg-vanta-metallic">
+          <svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <span class="action-text">My Team</span>
+      </div>
+
+      <div class="action-card" id="supportBtn" style="background-color: #3B82F6; cursor:pointer;">
+  <div class="mx-circle-badge bg-vanta-metallic">
+<svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+  <line x1="16" y1="2" x2="16" y2="6"></line>
+  <line x1="8" y1="2" x2="8" y2="6"></line>
+  <line x1="3" y1="10" x2="21" y2="10"></line>
+  <path d="M9 16l2 2 4-4"></path>
+</svg>
+  </div>
+  <span class="action-text">Check-in</span>
+</div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- <div class="plans-header-container">
+    <div class="plans-title-row">
+      <span class="line-deco"></span>
+      <h2 class="product-section-title">INVESTMENT PLANS</h2>
+      <span class="line-deco"></span>
+    </div>
+
+    
+    
+    <div class="plans-info-pill">
+      ALL VALUES IN NAIRA (₦) & DOLLAR ($)
+    </div>
+    
+    <div class="plans-rate-pill">
+      <svg class="rate-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v5h.58m15.42 6v5h-2M12 2v20M2 12h20"></path></svg>
+      EXCHANGE RATE: $1 = ₦1,350
+    </div>
+  </div> -->
+
+<div class="product-section">
+  <div class="product-list-container">
+    <div class="product-list" id="dynamicProductList">
+      <p style="color: #64748b; padding: 20px; text-align: center;">Loading investments...</p>
+    </div>
+  </div>
+</div>
+  
+
+</div>
+<!-- END DASHBOARD -->
+
+
+<div class="profile-page" id="profilePage" style="display:none;">
+
+  <div class="profile-fixed-top-header">
+    <span class="header-title-label">Profile</span>
+  </div>
+
+  <div class="profile-main-scroll-view">
+
+    <div class="dashboard-top-section">
+      <div class="profile-layout-card-wrapper">
+        
+        <div class="profile-user-identity-block">
+          <div class="profile-brand-logo-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          
+          <div class="honda-user-meta">
+            <h2 id="userPhoneNumber">Hi, </h2>
+            <div class="logo-geometric-shape" style="display:none;"></div>
+          </div>
+        </div>
+
+        <div class="profile-referral-clipboard-pill">
+          <span class="ref-label">Merchant Code:</span>
+          <span class="ref-code-value">OWN63</span>
+          <svg class="ref-copy-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+        </div>
+
+      </div>
+
+      <div class="honda-main-card">
+  <div class="honda-content">
+    <span class="honda-label">Available Balance</span>
+    
+    <div class="honda-amount-row">
+      <span id="balanceAmount">₦.00</span>
+      <!-- <span class="sub-currency">($0.74 USD)</span> -->
+    </div>
+
+    <!-- <div class="exchange-badge">
+      <span style="color: #4ade80;">$</span>
+      Exchange Rate: $1 = ₦1,350
+    </div> -->
+  </div>
+
+  <div class="honda-coin">
+    <i class="fas fa-circle-dollar-to-slot"></i>
+  </div>
+</div>
+</div>
+
+    <div class="profile-scroll-container">
+      
+      <div class="honda-action-card-wrapper">
+        <div class="honda-action-group">
+          <button id="mainRechargeTrigger" class="honda-btn-primary">
+            <div class="btn-circle-icon icon-gold-bg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            </div>
+            <span>Recharge</span>
+          </button>
+          <button id="withdrawBtn" class="honda-btn-outline">
+            <div class="btn-circle-icon icon-slate-bg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12H4M10 18l-6-6 6-6"/></svg>
+            </div>
+            <span>Withdraw</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="settings-group-wrapper">
+        <div class="settings-group-title">MY ACCOUNT</div>
+        <div class="settings-list-box">
+          
+          <div class="settings-item-row" id="myRecordsBtn">
+            <div class="item-left-side">
+              <i class="fa-solid fa-clock-rotate-left menu-icon premium-gold-tint"></i>
+              <span>Transactions</span>
+            </div>
+            <i class="fa-solid fa-chevron-right chevron-indicator"></i>
+          </div>
+
+          <div class="settings-item-row" id="earningsBtn">
+            <div class="item-left-side">
+              <i class="fa-solid fa-users menu-icon premium-gold-tint"></i>
+              <span>My Team</span>
+            </div>
+            <i class="fa-solid fa-chevron-right chevron-indicator"></i>
+          </div>
+
+          <div class="settings-item-row" id="incomeBtn">
+            <div class="item-left-side">
+              <i class="fa-solid fa-chart-line menu-icon premium-gold-tint"></i>
+              <span>Income</span>
+            </div>
+            <i class="fa-solid fa-chevron-right chevron-indicator"></i>
+          </div>
+
+          <div class="settings-item-row" id="commissionBtn">
+            <div class="item-left-side">
+              <i class="fa-solid fa-gift menu-icon premium-gold-tint"></i>
+              <span>Commission</span>
+            </div>
+            <i class="fa-solid fa-chevron-right chevron-indicator"></i>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="settings-group-wrapper">
+        <div class="settings-group-title">TRANSACTIONS</div>
+        <div class="settings-list-box">
+
+          <div class="settings-item-row" id="depositBtnrec">
+            <div class="item-left-side">
+              <i class="fa-solid fa-file-invoice-dollar menu-icon premium-gold-tint"></i>
+              <span>Deposit History</span>
+            </div>
+            <i class="fa-solid fa-chevron-right chevron-indicator"></i>
+          </div>
+
+          <div class="settings-item-row" id="withdrawalBtn">
+            <div class="item-left-side">
+              <i class="fa-solid fa-receipt menu-icon premium-gold-tint"></i>
+              <span>Withdraw History</span>
+            </div>
+            <i class="fa-solid fa-chevron-right chevron-indicator"></i>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="settings-group-wrapper">
+        <div class="settings-group-title">SETTINGS</div>
+        <div class="settings-list-box">
+
+          <div class="settings-item-row" id="bankAccountBtn">
+            <div class="item-left-side">
+              <i class="fa-solid fa-credit-card menu-icon premium-gold-tint"></i>
+              <span>Bank Details</span>
+            </div>
+            <i class="fa-solid fa-chevron-right chevron-indicator"></i>
+          </div>
+
+          <!-- <div class="settings-item-row" id="changePassBtn">
+            <div class="item-left-side">
+              <i class="fa-solid fa-shield-halved menu-icon premium-gold-tint"></i>
+              <span>Change Password</span>
+            </div>
+            <i class="fa-solid fa-chevron-right chevron-indicator"></i>
+          </div> -->
+
+          <!-- <a href="https://t.me/+5z_agZG3fbY1YTE0" target="_blank" class="settings-item-link">
+            <div class="settings-item-row">
+              <div class="item-left-side">
+                <i class="fa-brands fa-telegram menu-icon premium-gold-tint"></i>
+                <span>Support</span>
+              </div>
+              <i class="fa-solid fa-chevron-right chevron-indicator"></i>
+            </div>
+          </a> -->
+
+          <div class="settings-item-row logout-row" onclick="logout()">
+            <div class="item-left-side">
+              <i class="fa-solid fa-power-off menu-icon clean-red-tint"></i>
+              <span class="text-red">Logout</span>
+            </div>
+            <i class="fa-solid fa-chevron-right chevron-indicator red-chevron"></i>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="bank-page" id="bankPage" style="display:none;">
+
+  <div class="bank-header">
+    <button class="bank-back-btn" onclick="backToProfile()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <h2>Bank Details</h2>
+  </div>
+
+  <div class="honda-bank-container">
+    <form id="bankForm" class="honda-bank-form">
+      
+      <div class="bank-avatar-centerpiece">
+        <div class="bank-icon-circle">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"></path></svg>
+        </div>
+        <h1 class="bank-form-title">Manage Bank Card</h1>
+      </div>
+
+     <div class="honda-input-group">
+  <label class="honda-input-label">Account Name</label>
+  <input type="text" id="accountName" placeholder="ENTER ACCOUNT HOLDER NAME" required>
+</div>
+
+      <div class="honda-input-group">
+        <label class="honda-input-label">Bank Name</label>
+        <div class="honda-select-wrapper">
+          <select id="bankName" required>
+            <option value="" disabled selected>ENTER BANK NAME</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="honda-input-group">
+        <label class="honda-input-label">Account Number</label>
+        <input type="text" id="accountNumber" maxlength="10" placeholder="Enter 10-digit account number" required>
+      </div>
+
+      <div class="honda-notice-card">
+        <div class="notice-flex-container">
+          <div class="notice-circle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          </div>
+          <p class="notice-content">
+            Ensure your bank details are correct before saving. Use a valid Nigerian bank account. Withdrawals will be sent to this account.
+          </p>
+        </div>
+      </div>
+
+      <button type="submit" class="honda-submit-btn" id="submitBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle;"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+        Save Bank Details
+      </button>
+
+    </form>
+  </div>
+</div>
+
+
+<div class="recharge-page" id="rechargePage" style="display:none;">
+
+  <div class="rc-header">
+  <div class="rc-header-row">
+    <button class="rc-back-btn" id="rechargeBackBtn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+
+    <h2 class="rc-header-title">Recharge</h2>
+
+    <div class="rc-balance">
+      <span class="rc-balance-label">Balance</span>
+      <h1 class="rc-balance-value">₦<span id="userBalance">0</span></h1>
+    </div>
+  </div>
+</div>
+
+  <div class="recharge-page-container" id="rechargePageContainer">
+
+    <!-- Online Payment Card (matches screenshot) -->
+    <div class="payment-type-card">
+      <div class="payment-type-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+      </div>
+      <div class="payment-type-info">
+        <h4>Online Payment</h4>
+        <p>Funds are credited instantly upon confirmation</p>
+      </div>
+    </div>
+
+    <div class="recharge-card">
+      <p class="section-label">Select Amount</p>
+
+      <div class="amount-grid">
+         <div class="amount-option" data-value="3000">3,000</div>
+        <div class="amount-option" data-value="5400">5,400</div>
+        <div class="amount-option" data-value="10000">10,000</div>
+        <div class="amount-option" data-value="15000">15,000</div>
+        <div class="amount-option" data-value="20000">20,000</div>
+        <div class="amount-option" data-value="25000">25,000</div>
+        <div class="amount-option" data-value="30000">30,000</div>
+        <div class="amount-option" data-value="40000">40,000</div>
+        <div class="amount-option" data-value="50000">50,000</div>
+        <div class="amount-option" data-value="100000">100,000</div>
+        <div class="amount-option" data-value="150000">150,000</div>
+        <div class="amount-option" data-value="250000">250,000</div>
+        <div class="amount-option" data-value="500000">500,000</div>
+        <div class="amount-option" data-value="600000">600,000</div>
+        <div class="amount-option" data-value="1000000">1,000,000</div>
+      </div>
+
+      <p class="or-custom-label">or enter custom amount</p>
+
+      <div class="custom-amount-wrapper">
+  <span class="currency-icon">₦</span>
+  <input type="number" id="customAmount" placeholder="0.00">
+</div>
+
+
+      <button class="deposit-btn" id="depositBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+        Deposit Now
+      </button>
+
+      <div class="ssl-security-notice">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        <span>Secured by SSL Encryption</span>
+      </div>
+    </div>
+
+    <div class="info-guidelines-box">
+      <div class="guidelines-header">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        <h3 class="info-title">Deposit Guidelines</h3>
+      </div>
+      <ul class="info-list">
+        <li>
+          <span class="info-icon">1</span>
+          <p>Ensure the transfer amount matches exactly what you entered above.</p>
+        </li>
+        <li>
+          <span class="info-icon">2</span>
+          <p>Funds are usually credited within <span class="highlight-#3B82F6">5 minutes</span> of confirmation.</p>
+        </li>
+        <li>
+          <span class="info-icon">3</span>
+          <p>Keep your transaction receipt handy for support verification.</p>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="pay-page" id="payPage" style="display:none;">
+
+  <!-- Header -->
+  <div class="rc-header">
+    <div class="rc-header-row">
+      <button class="rc-back-btn" id="payBackBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <h2 class="rc-header-title">Make Payment</h2>
+      <div style="width:40px"></div>
+    </div>
+  </div>
+
+  <div class="pay-container">
+
+    <!-- Amount Card -->
+    <div class="pay-amount-card">
+      <span class="pay-amount-label">Transfer Exactly</span>
+      <div class="pay-amount-value">₦<span id="payAmount">3,000</span></div>
+      <div class="pay-countdown-row">
+        <span>Complete payment before</span>
+        <span class="pay-timer" id="payTimer">29:59</span>
+      </div>
+    </div>
+
+    <!-- Bank Details Card -->
+    <div class="pay-details-card">
+
+      <div class="pay-detail-row">
+        <span class="pay-detail-label">Name</span>
+        <div class="pay-detail-right">
+          <span class="pay-detail-value" id="payAccountName">VENTA'S, SOLUTIONS</span>
+          <button class="pay-copy-btn" onclick="copyText('payAccountName')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="pay-detail-row">
+        <span class="pay-detail-label">Bank</span>
+        <div class="pay-detail-right">
+          <span class="pay-detail-value" id="payBankName">VENTA MFB</span>
+          <button class="pay-copy-btn" onclick="copyText('payBankName')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="pay-detail-row">
+        <span class="pay-detail-label">Account</span>
+        <div class="pay-detail-right">
+          <span class="pay-detail-value" id="payAccountNumber">8105930766</span>
+          <button class="pay-copy-btn" onclick="copyText('payAccountNumber')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="pay-detail-row">
+        <span class="pay-detail-label">Amount</span>
+        <div class="pay-detail-right">
+          <span class="pay-detail-value" id="payAmountRow">3,000</span>
+          <button class="pay-copy-btn" onclick="copyText('payAmountRow')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="pay-detail-row" style="border-bottom:none">
+        <span class="pay-detail-label">Note / Remark</span>
+        <div class="pay-detail-right">
+          <span class="pay-detail-value pay-note-value" id="payNote">ZG84478338</span>
+          <button class="pay-copy-btn" onclick="copyText('payNote')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Important Note Box -->
+    <div class="pay-note-box">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12.01" y2="8"></line><line x1="12" y1="12" x2="12" y2="16"></line></svg>
+      Fill in the <strong>Note / Remark / Narration</strong> exactly when making the transfer or your deposit will not be credited automatically.
+    </div>
+
+    <!-- Warning List -->
+    <div class="pay-warning-box">
+      <div class="pay-warning-item">
+        <span class="pay-warn-num">1</span>
+        <p>Complete the payment within the time limit. <span class="pay-warn-red">Otherwise your account will not be credited!</span></p>
+      </div>
+      <div class="pay-warning-item">
+        <span class="pay-warn-num">2</span>
+        <p>Fill in the Note when transferring. <span class="pay-warn-red">Otherwise it will not be automatically credited!</span></p>
+      </div>
+      <div class="pay-warning-item">
+        <span class="pay-warn-num">3</span>
+        <p>Do not transfer to the same account twice. Do not save these account details.</p>
+      </div>
+    </div>
+
+    <!-- Confirm Button -->
+    <button class="deposit-btn" id="confirmPayBtn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      I Have Transferred — Confirm
+    </button>
+
+  </div>
+</div>
+
+
+<div class="withdraw-page" id="withdrawPage" style="display:none;">
+
+  <div class="wd-header-fixed">
+    <button class="wd-back-btn-v2" id="withdrawBackBtn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <h2>WITHDRAW</h2>
+    <button class="history-btn">Bill</button>
+  </div>
+
+  <div class="wd-recharge-container" id="withdrawPageContainer">
+    
+    <div class="wd-balance-card">
+      <div class="wd-balance-text">
+        <span class="wd-balance-title">Current balance</span>
+        <h1 class="wd-balance-value"> <span id="withdrawBalance">0.00</span></h1>
+      </div>
+      <div class="wd-balance-icon-side">
+        <div class="wd-wallet-vector">
+          <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"></path><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"></path><path d="M18 12a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4v-6z"></path></svg>
+          <div class="wd-arrow-indicators">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wd-segment-block">
+      <div class="wd-label-row">
+        <span class="wd-icon-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M12 4v16M2 10h20"></path></svg>
+        </span>
+        <label class="wd-section-label">Bank Account</label>
+      </div>
+
+      <div id="withdrawBankCard">
+        <div id="bankDetailsDisplay" class="wd-bank-grid">
+          <div class="wd-sub-card">
+            <div class="wd-value" id="withdrawAccountName">---</div>
+          </div>
+          <div class="wd-sub-card">
+            <div class="wd-value" id="withdrawAccountNumber">---</div>
+          </div>
+          <div class="wd-switch-side">
+            <span>Switch</span>
+          </div>
+          <div id="withdrawBankName" style="display:none;"></div>
+        </div>
+
+        <div id="bankEmptyState" class="wd-bank-empty" style="display: none;">
+          <div class="wd-empty-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+          </div>
+          <h4>No bank account linked for withdrawals</h4>
+          <p>Please link your local Nigerian bank account metrics to safely route payouts.</p>
+          <button id="addAccountBtn" class="wd-add-btn">Add Bank Account</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="wd-segment-block">
+      <div class="wd-label-row">
+        <span class="wd-icon-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+        </span>
+        <label class="wd-section-label">Withdraw Amount</label>
+      </div>
+
+      <div class="wd-input-wrapper">
+        <input type="number" id="withdrawAmountInput" placeholder="Please enter the amount">
+        <p id="withdrawMaxBtn" class="wd-max-link">ALL</p>
+      </div>
+
+      <div class="wd-calc-row">
+        <span class="wd-calc-lbl">You'll receive: ₦0</span>
+        <span class="wd-calc-lbl">Fee: 15%</span>
+      </div>
+    </div>
+
+    <button id="withdrawSubmitBtn">Withdraw</button>
+
+    <div class="wd-notice-card">
+      <h3 class="wd-notice-title">Withdrawal Notice</h3>
+      <ul class="wd-notice-list">
+        <li>
+          <span class="wd-prefix">1:</span>
+          <p>Minimum withdrawal amount: <span>₦1000</span></p>
+        </li>
+        <li>
+          <span class="wd-prefix">2:</span>
+          <p>Withdrawal time: 24/7</p>
+        </li>
+        <li>
+          <span class="wd-prefix">3:</span>
+          <p>Withdrawal arrival time: 0-24 hours</p>
+        </li>
+      </ul>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+<div id="welcomePopup" class="popup-overlay">
+  <div class="mx-unique-modal">
+    
+    <div class="mx-modal-header-gradient">
+      <div class="mx-welcome-sparkle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <span>WELCOME</span>
+      </div>
+      
+      <button class="mx-close-x-btn" id="closePopup" onclick="document.getElementById('welcomePopup').style.display='none'">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+
+      <h2 class="mx-modal-title">Welcome to the Official T DRIVE AFRICA Website!</h2>
+      <p class="mx-modal-subtitle">Join our official group today and claim a ₦1000 bonus as a welcome reward. Don't miss this exclusive opportunity—join now and start enjoying the benefits!</p>
+    </div>
+
+    <div class="mx-modal-body-content">
+      
+      <div class="mx-button-group">
+        <button class="mx-invest-now-btn" onclick="document.getElementById('welcomePopup').style.display='none'">
+          <svg class="btn-sparkle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+          <span>Get started — claim your ₦1000.00 bonus</span>
+        </button>
+      </div>
+
+      <div class="mx-telegram-group-row">
+        <a href="https://t.me/+QmvHKGLhwgtjYWE8" class="mx-community-card-btn" id="tgChannelBtn">
+          <svg class="mx-tg-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+          <span>Join our Telegram group</span>
+        </a>
+      </div>
+      
+     
+    </div>
+  </div>
+</div>
+
+
+
+<!-- PRODUCT PAGE -->
+<div class="product-page" id="productPage" style="display:none;">
+  
+  <!-- Header Image -->
+  <div class="product-header-img">
+    <img src="photo.jpg" alt="Platform News">
+  </div>
+
+  <h2 class="product-header"><i class="fas fa-chart-line"></i> Reviews & News</h2>
+
+  <!-- Reviews Ticker -->
+  <div class="reviews-ticker-wrapper">
+    <div class="reviews-ticker" id="reviewsTicker"></div>
+  </div>
+</div>
+
+
+
+<div class="invite-page" id="invitePage" style="display:none;">
+
+  <div class="invite-header-fixed-v2">
+    <button class="invite-back-btn-v2" id="inviteBackBtn">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <h2>Invite Friends</h2>
+  </div>
+
+  <div class="referral-container">
+    
+    <div class="section-block-wrapper">
+      <div class="referral-master-card">
+        <h3 class="section-block-title">Your Referral Tools</h3>
+        
+        <div class="referral-inner-brick">
+          <p class="card-label">Your Invite Code</p>
+          <div class="copy-input-wrapper">
+            <div class="code-display" id="inviteCode">Loading...</div>
+            <i class="fa-solid fa-copy copy-inline-icon" onclick="copyText('inviteCode')"></i>
+          </div>
+          <button class="copy-action-btn" onclick="copyText('inviteCode')">Copy Code</button>
+        </div>
+
+        <div class="referral-inner-brick">
+          <p class="card-label">Your Invite Link</p>
+          <div class="copy-input-wrapper">
+            <input type="text" id="refLink" class="link-display" value="Generating link..." readonly>
+            <i class="fa-solid fa-copy copy-inline-icon" onclick="copyInviteLink()"></i>
+          </div>
+          <button class="copy-action-btn" onclick="copyInviteLink()">Copy Link</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block-wrapper">
+      <div class="earnings-master-card">
+        <h3 class="section-block-title">Your Earnings Structure</h3>
+        
+        <div class="earnings-tier-row">
+  <div class="tier-badge-indicator badge-gold">1</div>
+  <div class="tier-info-text">
+    <h4 style="color: #3B82F6; font-size: 16px;">Direct Referrals (Level 1)</h4>
+    <p style="color: #3B82F6; font-size: 16px;">Friends who sign up using your link</p>
+  </div>
+  <div class="tier-value-pill reward-blue-pill">15%</div>
+</div>
+
+<div class="earnings-tier-row">
+  <div class="tier-badge-indicator badge-silver">2</div>
+  <div class="tier-info-text">
+    <h4 style="color: #3B82F6; font-size: 16px;">Secondary Referrals (Level 2)</h4>
+    <p style="color: #3B82F6; font-size: 16px;">Friends who sign up using your link</p>
+  </div>
+  <div class="tier-value-pill reward-blue-pill">3%</div>
+</div>
+    </div>
+     </div>
+
+    <div class="section-block-wrapper">
+      <div class="how-it-works-card">
+        <div class="how-header">
+          <i class="fa-solid fa-circle-nodes"></i>
+          <h3 style="color: #3B82F6; font-size: 16px;">How It Works</h3>
+        </div>
+
+        <div class="step-item">
+          <div class="step-check-icon"><i class="fa-solid fa-circle-check"></i></div>
+          <div class="step-content">
+            <p style="color: #3B82F6; font-size: 16px;">Share your invite code or link with friends</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+  <div class="step-check-icon"><i class="fa-solid fa-circle-check"></i></div>
+  <div class="step-content">
+    <p style="color: #3B82F6; font-size: 16px;">Earn <span class="highlight-#3B82F6">15% invite bonus</span> when your direct referrals invest</p>
+  </div>
+</div>
+
+<div class="step-item">
+  <div class="step-check-icon"><i class="fa-solid fa-circle-check"></i></div>
+  <div class="step-content">
+    <p style="color: #3B82F6; font-size: 16px;">Earn <span class="highlight-#3B82F6">3% invite bonus</span> when your secondary referrals invest</p>
+  </div>
+</div>
+
+<div class="step-item">
+  <div class="step-check-icon"><i class="fa-solid fa-circle-check"></i></div>
+  <div class="step-content">
+    <p style="color: #3B82F6; font-size: 16px;">Earnings are credited immediately after investment</p>
+  </div>
+</div>
+      </div>
+    </div>
+     </div>
+  </div>
+</div>
+      
+  <!-- Daily Check Loader -->
+<div id="dailyLoader" class="daily-loader">
+  <div class="spinner-3d"></div>
+  <p>Checking in...</p>
+</div>
+
+
+<div id="earningsPage" class="page" style="display: none; padding: 0;">
+  
+  <div class="team-header-main">
+    <button id="earningsBackBtn" class="back-btn-white">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <span>My Team</span>
+    <button class="header-refresh-action" onclick="loadSummary()">
+      <i class="fa-solid fa-rotate-right"></i>
+    </button>
+  </div>
+
+  <div class="recharge-page-container">
+
+    <div class="how-it-works-notice-card">
+      <div class="notice-info-trigger-icon">
+        <i class="fa-solid fa-circle-info"></i>
+      </div>
+     <div class="notice-body-text-block">
+  <span class="notice-title-label" style="color: #3B82F6; font-size: 16px;">How It Works</span>
+  Share your referral link with friends. When they sign up and make a deposit, you earn 
+  <span class="gold-highlight-text">15%</span> invite bonus when your direct referrals invest, and 
+  <span class="gold-highlight-text">3%</span> invite bonus when your level 2 referral invests.
+</div>
+    </div>
+
+    <div class="premium-sixpack-container">
+      <div class="sixpack-grid-structure">
+        
+        <div class="sixpack-item-node">
+          <div class="sixpack-icon-wrapper blue-icon-theme">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <span class="sixpack-value" id="globalTeamSizeSum" style="color: #3B82F6; font-size: 16px;">0</span>
+          <span class="sixpack-label">Total Referrals</span>
+        </div>
+
+        <div class="sixpack-item-node">
+          <div class="sixpack-icon-wrapper gold-icon-theme">
+            <i class="fa-solid fa-wallet"></i>
+          </div>
+          <span class="sixpack-value" id="globalTeamRechargeSum" style="color: #3B82F6; font-size: 16px;">₦0</span>
+          <span class="sixpack-label">Total Income</span>
+        </div>
+
+        <div class="sixpack-item-node">
+          <div class="sixpack-icon-wrapper green-icon-theme">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <span class="sixpack-value" style="color: #3B82F6; font-size: 16px;">0</span> <span class="sixpack-label">Active Referrals</span>
+        </div>
+
+        <div class="sixpack-item-node">
+          <div class="sixpack-icon-wrapper gold-star-theme">
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <span class="sixpack-value" id="sixpackL1Comm" style="color: #3B82F6; font-size: 16px;">₦0</span>
+          <span class="sixpack-label">Level 1 Income</span>
+        </div>
+
+        <div class="sixpack-item-node">
+          <div class="sixpack-icon-wrapper empty-star-theme">
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <span class="sixpack-value" id="sixpackL2Comm" style="color: #3B82F6; font-size: 16px;">₦0</span>
+          <span class="sixpack-label">Level 2 Income</span>
+        </div>
+
+        <div class="sixpack-item-node">
+          <div class="sixpack-icon-wrapper moon-icon-theme">
+            <i class="fa-solid fa-moon"></i>
+          </div>
+          <span class="sixpack-value" style="color: #3B82F6; font-size: 16px;">0</span> <span class="sixpack-label">Dormant Referrals</span>
+        </div>
+
+      </div>
+    </div>
+
+    <span id="sixpackL1Rate" style="display:none;">0%</span>
+    <span id="sixpackL2Rate" style="display:none;">0%</span>
+    <span id="t1Comm" style="display:none;">₦0</span>
+    <span id="t2Comm" style="display:none;">₦0</span>
+    <span id="t1Count" style="display:none;">0</span>
+    <span id="t2Count" style="display:none;">0</span>
+
+    <div class="segmented-pill-navigation-wrapper">
+      <button id="tabToggleLevel1" class="navigation-pill-btn state-active" onclick="showLevelDetails(1)">Level 1 (0)</button>
+      <button id="tabToggleLevel2" class="navigation-pill-btn" onclick="showLevelDetails(2)">Level 2 (0)</button>
+    </div>
+
+    <div id="detailView" class="interactive-detail-view-shell">
+      <div class="list-title-header-wrapper">
+        <h4 id="listTitle" class="dynamic-list-heading">Team Members</h4>
+        <button class="close-panel-pill" onclick="closeDetails()">Clear View</button>
+      </div>
+      
+      <div class="user-list-wrapper-box" id="teamList">
+        <div class="empty-state-vector-wrapper">
+          <div class="empty-vector-network-icon">
+            <i class="fa-solid fa-share-nodes"></i>
+          </div>
+          <p class="empty-state-main-prompt">No Level 1 referrals yet</p>
+          <a href="javascript:void(0);" class="referral-trigger-action-link" onclick="copyReferralTrigger()">Share your referral link to start earning!</a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<div id="myInvestmentPage" class="investment-page" style="display:none;">
+
+  <div class="investment-header">
+    <button id="investmentBackBtn" class="investment-back-btn">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <div id="investmentLogo"></div>
+    <h2>Orders</h2>
+  </div>
+
+  <div class="investment-sub-header">
+    <div class="investment-filter-row">
+      <button class="inv-filter-btn active" data-filter="all">All</button>
+      <button class="inv-filter-btn" data-filter="active">Active</button>
+      <button class="inv-filter-btn" data-filter="completed">Completed</button>
+      <button class="inv-filter-btn" data-filter="expired">Expired</button>
+    </div>
+  </div>
+
+  <div id="investment-list-container" class="card-wrapper">
+    </div>
+
+</div>
+
+<div class="bank-page" id="recordsPage" style="display:none;">
+
+  <div class="records-header">
+    <button id="recordsBackBtn" class="records-back-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <h2>Transaction Records</h2>
+  </div>
+
+  <div class="records-content-container">
+    
+    <div class="records-total-summary-card">
+      <div class="summary-metric-label">Total Transactions</div>
+      <div class="summary-metric-value" id="totalTrxCount">1</div>
+    </div>
+
+    <div id="recordsContainer">
+       </div>
+
+  </div>
+</div>
+
+<div id="investmentModal" class="modal-overlay">
+  <div class="modal-card">
+    <div class="sheet-header">
+      <h2 class="sheet-title">Confirm Purchase</h2>
+     <button class="close-sheet">×</button>
+    </div>
+
+    <div class="slim-card">
+      <div class="product-main-row">
+        <div class="check-icon-container">
+          <div class="check-icon">L</div> </div>
+        <div class="product-details">
+          <strong id="modalPlanName">NOVA 3</strong>
+          <p>Cost: ₦<span id="modalPlanCost">15,000.00</span></p>
+        </div>
+      </div>
+
+      <div class="divider-line"></div>
+
+      <div class="account-balance-row">
+        Account: ₦<span id="modalUserBalance">0.00</span>
+      </div>
+    </div> 
+
+    <div class="action-area">
+      <button id="finalInvestBtn" class="purchase-btn">Purchase</button>
+    </div>
+  </div>
+</div>
+
+<nav class="bottom-nav" id="bottomNav">
+  <div class="nav-pill-container">
+    
+    <a href="#" class="nav-item active" id="homeNav">
+      <div class="nav-icon-wrapper">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </div>
+      <span class="nav-label-text">Home</span>
+    </a>
+
+    <a href="#" class="nav-item" id="investmentRecordsBtn">
+      <div class="nav-icon-wrapper">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+        </svg>
+      </div>
+      <span class="nav-label-text">Plans</span>
+    </a>
+
+    <a href="#" class="nav-item" id="shareBtn">
+      <div class="nav-icon-wrapper">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <span class="nav-label-text">Team</span>
+    </a>
+
+    <a href="#" class="nav-item" onclick="openProfile()">
+      <div class="nav-icon-wrapper">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </div>
+      <span class="nav-label-text">Profile</span>
+    </a>
+
+  </div>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
+
+
+<script type="module" src="script.js?v=3"></script>
+<script src="router.js?v=1"></script>
+
+</body>
+</html>

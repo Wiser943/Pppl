@@ -1,0 +1,5413 @@
+@import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
+/* ================= GENERAL RESET ================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Coiny", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ==========================================================================
+   DESIGN VARIABLES & RESET
+   ========================================================================== */
+:root {
+  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  --card-bg: rgba(30, 41, 59, 0.7);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --input-bg: rgba(15, 23, 42, 0.6);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent-color: #6366f1; /* Tech Indigo */
+  --accent-hover: #4f46e5;
+  --error-color: #ef4444;
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   CONTAINER & VISIBILITY ANIMATION
+   ========================================================================== */
+
+
+.dashboard {
+  width: 100%;
+  max-width: 800px; /* Kept your preferred width scale intact */
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  
+  /* Official Liquid Obsidian Canvas */
+  background-color: var(--dark-black) !important;
+  /* Subtly highlights the upper center area of the user interface */
+  background-image: radial-gradient(circle at 50% 20%, #1A1815 0%, var(--dark-black) 80%) !important;
+  background-attachment: fixed;
+  
+  /* True Luxury Text Contrast */
+  color: #FFFFFF !important;
+  font-family: 'Inter', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Official Liquid Obsidian & Luxury Gold Palette */
+  --gold-primary: #3B82F6;      /* Sharp metallic gold */
+  --gold-secondary: #9CA3AF;    /* Muted gold for structural details */
+  --dark-black: #FFFFFF;        /* Deep, pure obsidian canvas */
+  --dark-gray: #F9FAFB;        /* Sleek, dark graphite for inputs */
+  --charcoal: #2A2825;          /* Crisp structural border lines */
+
+  /* UI Element Mappings */
+  --bg-header: var(--dark-black);
+  --text-primary: #3B82F6;
+  --text-muted: var(--gold-secondary);
+  --border-line: var(--charcoal);
+}
+
+/* ================= PREVENT BLUES: NEW ISOLATED NAVBAR CLASS ================= */
+.mx-vanta-navbar {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 900px;
+  height: 64px;
+  
+  /* Pure Obsidian Canvas Blocks */
+  background: #3B82F6 !important; 
+  background-color: #3B82F6 !important;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  z-index: 10000;
+  box-sizing: border-box;
+  
+  /* Gold/Charcoal Rim Border Split */
+  border-bottom: 1px solid var(--border-line) !important;
+}
+
+/* Left Brand Alignment */
+.mx-vanta-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Premium Geometric Badge */
+.mx-vanta-badge {
+  width: 40px;
+  height: 40px;
+  background: var(--dark-gray) !important;
+  border: 1.5px solid var green !important;
+  border-radius: 50%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(188, 144, 79, 0.12);
+}
+
+.mx-vanta-shape {
+  display: flex;
+  gap: 3px;
+  transform: skewX(-10deg);
+}
+
+.mx-vanta-bar {
+  width: 4px;
+  height: 12px;
+  background-color: var(--gold-primary) !important; 
+  border-radius: 1px;
+}
+
+.mx-vanta-bar:last-child {
+  background-color: #FFFFFF !important; 
+  height: 15px;
+  margin-top: -3px;
+}
+
+/* Micro Typography Spacing (Clean, not too bold) */
+.mx-vanta-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.mx-vanta-title {
+  margin: 0 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 16px !important; 
+  font-weight: 600 !important; 
+  color: #000 !important;
+  letter-spacing: -0.01em;
+}
+
+.mx-vanta-subtitle {
+  margin: 0 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  color: var(--text-muted) !important;
+  text-transform: uppercase; 
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+/* Right Side Anchor Elements */
+.mx-vanta-right {
+  display: flex;
+  align-items: center;
+}
+
+.mx-vanta-bell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red; 
+  color: red !important; 
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  background-color: white !important;
+  padding: 8px;
+  border-radius: 50%;
+  
+  /* Smooth transitions for hover and click states */
+  transition: opacity 0.2s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  /* Sets the pivot point at the top center so it swings naturally like a real bell */
+  transform-origin: top center;
+  
+  /* Triggers the continuous, automatic swinging loop */
+  animation: natural-swing 2.5s ease-in-out infinite;
+}
+
+.mx-vanta-bell svg {
+  width: 22px;
+  height: 22px;
+  stroke: red !important; 
+  stroke-width: 2; 
+}
+
+/* Hover State: Just a gentle pop up, no extra tilt */
+.mx-vanta-bell:hover {
+  opacity: 0.9;
+  transform: scale(1.08);
+}
+
+/* Active State: Springy squeeze on click/tap */
+.mx-vanta-bell:active {
+  transform: scale(0.9);
+  transition: transform 0.05s ease;
+}
+
+/* Continuous, automatic swinging keyframes */
+@keyframes natural-swing {
+  0%, 100% { transform: rotate(0 deg); }
+  25%      { transform: rotate(10deg); }  /* Swings right */
+  75%      { transform: rotate(-10deg); } /* Swings left */
+}
+
+.action-btn {
+  width: 45px;
+  height: 45px;
+  background: transparent;
+  border: 1.5px solid #0e3047;
+  border-radius: 12px; /* Rounded square look from image */
+  color: #00d4ff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.action-btn:hover {
+  border-color: #00d4ff;
+  box-shadow: inset 0 0 10px rgba(0, 212, 255, 0.2), 0 0 10px rgba(0, 212, 255, 0.2);
+}
+
+/* Ensure FontAwesome icons glow */
+.action-btn i {
+  filter: drop-shadow(0 0 3px #00d4ff);
+}
+
+.user-phone {
+  margin: 2px 0 0 0;
+  font-size: 15px;
+  color: #94a3b8; /* Muted grey for the phone number */
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+/* Push main content down */
+body {
+padding-top: 0px !important; 
+  margin: 0;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Official Liquid Obsidian Palette Variables */
+  --gold-primary: #3B82F6;
+  --gold-secondary: #9CA3AF;
+  --dark-black: #FFFFFF;
+  --dark-gray: #F9FAFB;
+  --charcoal: #2A2825;
+
+  /* Color Workspace Mappings */
+  --text-primary: #3B82F6;
+  --text-muted: var(--gold-secondary);
+}
+
+/* Base Structural Wrapper Control */
+.main-container {
+  width: 100%;
+  
+  box-sizing: border-box;
+  background: transparent;
+  margin-bottom: 2rem;
+}
+
+/* Luxury Card Deck Panel */
+.mx-menu-wrapper {
+  /* background-color: green !important; */
+  /* border: 1px solid green !important; */
+  border-radius: 20px; /* Refined iOS rounded card wrapper */
+  /* padding: 10px 1px; */
+  width: 100%;
+  box-sizing: border-box;
+  /* box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); */
+}
+
+/* Force Clean Grid Layout in one line row */
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 8px; 
+  width: 100%;
+}
+
+/* Flat, Minimal Action Card Sockets */
+.action-card {
+  background-color: green;
+  padding: 10px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px; /* Precise tight layout padding layout spacing */
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.action-card:active {
+  transform: scale(0.93); /* Native premium iOS spring effect */
+}
+
+/* Dark Polished Shield Circular Spheroids */
+.mx-circle-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+/* Deep Obsidian Glass-Reflective Substrate Badge */
+.bg-vanta-metallic {
+  background: rgba(7, 7, 6, 0.6) !important;
+  border: 1.5px solid var(--charcoal);
+}
+
+/* Micro Icon Sizing within Badges */
+.action-icon {
+  width: 20px;
+  height: 20px;
+  color: #FFFFFF !important; /* Sharp crisp white stroke icons */
+}
+
+/* Card Interaction Hover Adjustments */
+.action-card:hover .mx-circle-badge {
+  border-color: var(--gold-primary);
+  background-color: #000000 !important;
+}
+
+.action-card:hover .action-text {
+  color: var(--gold-primary) !important;
+}
+
+/* Crisp Light Weight Labels (Not too bold) */
+.action-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500; /* Subtle, clean aesthetic density weight */
+  color: white !important;
+  text-align: center;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+/* Layout optimization for responsive medium mobile viewports */
+@media (min-width: 375px) {
+  .action-grid {
+    gap: 10px;
+  }
+  .mx-circle-badge {
+    width: 56px;
+    height: 56px;
+  }
+  .action-text {
+    font-size: 13px;
+  }
+}
+
+/* CONTAINER & HEADER */
+.features-section {
+  padding: 20px;
+  background: transparent;
+  font-family: sans-serif;
+}
+
+.features-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.features-header h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.view-all-link {
+  color: #2D6BEF; /* Matching Syncox Blue */
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* HORIZONTAL SCROLLING WRAPPER */
+.features-scroll-container {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  /* Hide scrollbar for Chrome/Safari */
+  scrollbar-width: none; 
+}
+
+.features-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* THE CARDS - Optimized for Mobile */
+.feature-card {
+  flex: 1 1 calc(33.33% - 10px); /* Adjusts to fit 3 cards per row */
+  max-width: calc(33.33% - 10px); 
+  background: #ffffff;
+  border-radius: 15px; /* Slightly smaller radius for mobile */
+  padding: 15px 5px;   /* Reduced padding to save space */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  border: 1px solid #f0f0f0;
+  box-sizing: border-box;
+  margin: 5px; /* Adds breathing room between cards */
+}
+
+.feature-title {
+  font-size: 18px; /* Scaled down from 22px for mobile */
+  font-weight: 800;
+  color: #1a1a1a; 
+  margin-bottom: 2px;
+  text-align: center;
+}
+
+/* The 100% Blue Highlight */
+.highlight-text {
+  color: #2D6BEF !important;
+}
+
+.feature-subtitle {
+  font-size: 11px; /* Scaled down from 14px */
+  font-weight: 600;
+  color: #99a1b7; 
+  text-align: center;
+  white-space: nowrap; /* Prevents text from wrapping ugly */
+}
+
+/* PREMIUM FLYER CONTAINER - LUXURY ATM DECK STYLE */
+.flyer-container {
+  width: 100%;
+  background-color: transparent;
+  padding: 0; 
+  
+  /* Pushes the container down so the 64px fixed header doesn't overlap it */
+  margin-top: 65px !important; 
+  margin-bottom: 24px;
+  box-sizing: border-box;
+}
+
+.balance-flyer {
+  width: 100%;       
+  max-width: 100%;   
+  margin: 0 auto;
+  height: 240px;      /* Ideal iOS ATM Card aspect ratio for mobile viewports */
+  position: relative;
+  border-radius: 24px; 
+  
+  /* Luxury Liquid Obsidian ATM Frame */
+  background: var(--dark-gray);
+  border: 2px solid #3B82F6; /* Subtle gold rim reflection */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 
+              inset 0 1px 2px rgba(255, 255, 255, 0.1); /* Crisp 3D card edge */
+  overflow: hidden;
+}
+
+/* Sliding Track Frame Architecture */
+.flyer-track {
+  display: flex;
+  width: 200%; /* Spans 200% to house all 2 cards perfectly side by side */
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Ultra-smooth iOS easing */
+}
+
+.flyer-card {
+  width: 50%; /* Each card takes up exactly half of the track width */
+  height: 100%;      
+  display: block;    
+  object-fit: cover; /* Keeps image proportions crisp without stretching */
+}
+
+/* Premium Metallic Dark Overlay Specially Formatted for ATM Graphics */
+.flyer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Elegant ambient vignette to make text overlay or card designs pop */
+  background: linear-gradient(135deg, rgba(7, 7, 6, 0.1) 0%, rgba(7, 7, 6, 0.4) 100%);
+  pointer-events: none;
+  border-radius: 24px; 
+  z-index: 2;
+}
+
+
+/* Products Header */
+.products-header {
+  margin-bottom: 12px;
+  text-align: left; /* align text to left */
+}
+
+.products-header h2 {
+  display: inline-block;        
+  padding: 6px 16px;            
+  font-size: 18px;
+  font-weight: bold;
+  color: #D4AF37;               /* white text */
+  background: #d01e1e;          /* sky blue background */
+  border-radius: 50px;          
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;    
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* subtle black shadow */
+}
+
+
+
+
+
+.welcome-card {
+  background: linear-gradient(135deg, #1E3A8A, #2f6df6); /* SONY-style blue */
+  color: white;
+  border-radius: 12px;       
+  padding: 30px;             
+  margin: 0;                 /* remove side margins */
+  width: 100%;               /* full width of container/screen */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+
+.welcome-content {
+  display: flex;
+  flex-direction: column;   /* stack vertically */
+  align-items: flex-start;  /* all left aligned */
+}
+
+.welcome-text {
+  font-size: 16px;           
+  font-weight: 300;          
+  margin: 0;                 
+}
+
+.user-number {
+  font-size: 20px;           
+  font-weight: 700;          
+  margin: 4px 0 0 0;         /* small space below header */
+  letter-spacing: 1px;
+}
+
+
+.record-id {
+  font-weight: 700;           /* Makes it bold */
+  font-family: 'Courier New', Courier, monospace; /* Monospace for numbers */
+  color: #000000;                /* Slightly darker for readability */
+  background: #f0f0f0;        /* Light grey background badge */
+  padding: 2px 6px;           /* Space inside the badge */
+  border-radius: 4px;         /* Rounded corners */
+  display: inline-block;      /* Keeps the background tight to the text */
+  margin-top: 4px;            /* Space from the time above */
+  font-size: 11px;            /* Keeps it small but clear */
+  letter-spacing: 0.5px;      /* Spacing between numbers */
+  user-select: all;           /* Allows user to select full ID with one tap */
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Official Liquid Obsidian Palette Variables */
+  --gold-primary: #3B82F6;
+  --gold-secondary: #9CA3AF;
+  --dark-black: #FFFFFF;
+  --dark-gray: #F9FAFB;
+  --charcoal: #2A2825;
+}
+
+/* ================= PREMIUM LIQUID OBSIDIAN THEME BOTTOM NAV ================= */
+.bottom-nav {
+  position: fixed;
+  bottom: 0; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  max-width: 440px; /* Perfectly aligned to the container scales */
+  
+  /* Luxury Dark Canvas Blending */
+  background: var(--dark-black) !important;
+  border-top: 1px solid var(--charcoal) !important; 
+  
+  z-index: 9999;
+  box-sizing: border-box;
+  padding-bottom: env(safe-area-inset-bottom, 0px); 
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5); 
+}
+
+.nav-pill-container {
+  width: 100%;
+  height: 64px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  align-items: center;
+  justify-items: center;
+  box-sizing: border-box;
+}
+
+/* ================= NAV ITEMS GRID INTERFACES ================= */
+.nav-item {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  gap: 4px;
+  
+  /* Modern Premium Muted Color State */
+  color: var(--gold-secondary) !important; 
+  
+  transition: color 0.15s ease, transform 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Vector Framework Wrap Scaling Box Container */
+.nav-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 26px;
+  color: inherit;
+  transition: color 0.15s ease;
+}
+
+.nav-icon-wrapper svg {
+  width: 22px; /* Fine-tuned thickness scale */
+  height: 22px;
+  stroke: currentColor;
+}
+
+/* Component Navigation Text Labels */
+.nav-label-text {
+  font-size: 11px;
+  font-weight: 500; /* Subtle, crisp clean font weighting */
+  letter-spacing: -0.01em;
+  transition: color 0.15s ease;
+}
+
+/* ================= THE ARCHITECTURE ACTIVE CONTRAST MATRIX ================= */
+.nav-item.active {
+  color: pink !important; /* Luxury Gold Highlight */
+}
+
+.nav-item.active .nav-icon-wrapper {
+  color: var(--gold-primary) !important;
+}
+
+.nav-item.active .nav-label-text {
+  color: var(--gold-primary) !important;
+  font-weight: 500;
+}
+
+/* Micro Subtle Active Dot Indicator Underneath */
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  width: 4px;
+  height: 4px;
+  background-color: var(--gold-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--gold-primary);
+}
+
+/* UI Haptic Finger Down Tap Scale Feedback */
+.nav-item:active {
+  transform: scale(0.94);
+}
+
+/* ================= THE FIX: AUTOMATIC SCROLL SPACING OFFSET ================= */
+.profile-scroll-container {
+  padding-bottom: calc(90px + env(safe-area-inset-bottom, 0px)) !important;
+}
+
+.nav-spacer-fix {
+  padding-bottom: calc(90px + env(safe-area-inset-bottom, 0px)) !important;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* System Theme Tokens Mapping */
+  --bg-main: #FFFFFF;             /* Premium Liquid Obsidian Base Sheet Background */
+  --bg-card-surface: #FFFFFF;     /* Polished Surface Sockets */
+  --charcoal-border: #24221F;     /* Razor Crisp Separator Hairline Metric */
+  --gold-primary: #3B82F6;        /* Glistening Luxury Core Gold Accent */
+  --gold-muted: #9CA3AF;          /* Fine Subtext Tracking Gray-Gold Alpha */
+  
+  --text-light: #3B82F6;
+  --text-muted: #A39E93;
+}
+
+body {
+  background-color: var(--bg-main);
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-light);
+}
+
+/* Updated profile container structure to handle independent grid mechanics */
+.profile-page {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: var(--bg-main);
+  position: relative;
+}
+
+/* ===== NEW STICKY TOP FIXED HEADER BAR ===== */
+.profile-fixed-top-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  background-color: var(--bg-main) !important;
+  border-bottom: 1px solid var(--charcoal-border) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+/* Clean, non-bold profile tracking header title */
+.header-title-label {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: var(--text-light) !important;
+  letter-spacing: -0.01em;
+}
+
+/* ===== INDEPENDENT INTERNAL BODY VIEWPORT SCROLLER ===== */
+.profile-main-scroll-view {
+  flex: 1;
+  overflow-y: auto;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Sleek minimalist scrollbar rules */
+.profile-main-scroll-view::-webkit-scrollbar {
+  width: 4px;
+}
+.profile-main-scroll-view::-webkit-scrollbar-thumb {
+  background: var(--charcoal-border);
+  border-radius: 10px;
+}
+
+/* ===== HIGH LEVEL HEADER CONTAINER SECTOR ===== */
+.dashboard-top-section {
+  background: var(--bg-main) !important;
+  padding: 16px 16px 20px 16px; /* Optimized layout clearance */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+/* User Structural Flex Array from Screenshot */
+.profile-layout-card-wrapper {
+  background: var(--bg-card-surface);
+  border: 1px solid var(--charcoal-border);
+  border-radius: 20px;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  gap: 16px;
+}
+
+.profile-user-identity-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+/* Crisp Clean Outline Profile Ring (No heavy fill color) */
+.profile-brand-logo-circle {
+  width: 68px;
+  height: 68px;
+  background: rgba(188, 144, 79, 0.04);
+  border: 1.5px solid #3B82F6; /* Subtle gold outline for premium feel */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+.profile-brand-logo-circle svg {
+  width: 28px;
+  height: 28px;
+  color: var(--gold-primary);
+}
+
+.honda-user-meta h2 {
+  font-size: 19px !important;
+  font-weight: 500 !important; /* Not too bold clean presentation */
+  color: var(--text-light) !important;
+  margin: 0 !important;
+  letter-spacing: -0.01em;
+}
+
+/* Premium Clipboard Action Badge Pill from Screenshot */
+.profile-referral-clipboard-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-main);
+  border: 1px solid var(--charcoal-border);
+  padding: 6px 14px;
+  border-radius: 30px;
+}
+.profile-referral-clipboard-pill .ref-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.profile-referral-clipboard-pill .ref-code-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: #3B82F6;
+  letter-spacing: 0.02em;
+}
+.ref-copy-svg {
+  width: 13px;
+  height: 13px;
+  color: #3B82F6;
+  margin-left: 2px;
+  cursor: pointer;
+}
+
+
+/* Sleek, Thinner Glassmorphic Card */
+.honda-main-card {
+  background: linear-gradient(145deg, rgba(20, 20, 20, 0.8), rgba(10, 10, 10, 0.9)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(15px) !important;
+  border-radius: 20px !important;
+  padding: 26px 20px !important; /* Reduced vertical padding */
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.honda-content {
+  position: relative;
+  z-index: 2;
+  width: 70%; /* Give content more room */
+}
+
+/* Thinner, smaller coin */
+.honda-coin {
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 90px; /* Reduced from 120px */
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.honda-coin img {
+  width: 100%;
+  filter: drop-shadow(0 0 10px rgba(74, 222, 128, 0.4));
+}
+
+.honda-label { font-size: 11px !important; margin-bottom: 4px; color: #a0a0a0 !important; }
+.honda-amount-row { font-size: 24px !important; font-weight: 700 !important; color: #4ade80 !important; display: flex; flex-direction: column; gap: 0; }
+
+
+/* ===== INNER LIST DATA LAYOUT HOUSING ===== */
+.profile-scroll-container {
+  padding: 4px 16px 40px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+/* ===== MIDSECTION DUAL NAVIGATION ROW ===== */
+.honda-action-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  position: relative;
+}
+
+.honda-btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 12px;
+  border-radius: 14px;
+  cursor: pointer;
+  background-color: #3B82F6 !important; /* Glowing Core Statement Action Indicator */
+  border: none !important;
+  color: var(--bg-main) !important;
+  box-sizing: border-box;
+  transition: transform 0.1s ease;
+}
+
+.honda-btn-outline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 12px;
+  border-radius: 14px;
+  cursor: pointer;
+  background-color: var(--bg-card-surface) !important;
+  border: 1px solid var(--charcoal-border) !important;
+  color: var(--text-light) !important;
+  box-sizing: border-box;
+  transition: transform 0.1s ease;
+}
+
+.honda-btn-primary:active, .honda-btn-outline:active {
+  transform: scale(0.97);
+}
+
+/* Icon Hidden Utilities for precise screenshot look integration */
+.btn-circle-icon { display: none; }
+
+/* ===== CUSTOM MATRIX ROW ITEMS GROUPS ===== */
+.settings-group-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.settings-group-title {
+  font-size: 11px;
+  font-weight: 500;
+  color: #3B82F6;
+  letter-spacing: 0.06em;
+  padding-left: 6px;
+}
+
+.settings-list-box {
+  background-color: var(--bg-card-surface) !important;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--charcoal-border) !important;
+}
+
+.settings-item-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.settings-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 16px;
+  border-bottom: 1px solid rgba(36, 34, 31, 0.6) !important;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  background-color: transparent !important;
+}
+
+.settings-item-row:last-child {
+  border-bottom: none !important;
+}
+
+.settings-item-row:active {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+.item-left-side {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Minimal Matte Gold List Vector Glyphs */
+.menu-icon {
+  font-size: 14px;
+  width: 20px;
+  text-align: center;
+}
+
+.premium-gold-tint { color: #3B82F6 !important; }
+.clean-red-tint { color: #FF5C5C !important; }
+.text-red { color: #FF5C5C !important; }
+
+.item-left-side span {
+  font-size: 13.5px;
+  font-weight: 400; /* Super clean, premium weight management mapping */
+  color: var(--text-light) !important;
+  letter-spacing: -0.01em;
+}
+
+.chevron-indicator {
+  font-size: 10px;
+  color: var(--charcoal-border);
+}
+
+.red-chevron {
+  color: rgba(255, 92, 92, 0.2);
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --canvas-light-gray: #070706;     /* Deep Liquid Obsidian App Backdrop */
+  --surface-pure-white: #131211;    /* Polished Charcoal-Obsidian Core Card */
+  --primary-royal-blue: #3B82F6;    /* Core FinTech Luxury Gold Accent Hues */
+  --text-primary-dark: #3B82F6;     /* Crisp High Contrast Bold Copy */
+  --text-slate-muted: #9E998E;      /* Warm Gold-Tinted Secondary Slate Info */
+  --input-fill-tint: #1C1A18;       /* Deep Muted Base Sockets For Form Fields */
+  --border-divider-line: #22201D;   /* Ultra-thin Structural Panel Rule Divider */
+}
+
+.bank-page {
+  background-color: var(--canvas-light-gray) !important;
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary-dark);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================================
+   FIXED TOP NAVIGATION HEADER
+   ========================================================================== */
+.bank-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background-color: #0B0B0A;
+  border-bottom: 1px solid var(--border-divider-line);
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.bank-back-btn {
+  background: transparent;
+  border: none;
+  color: var(--primary-royal-blue); /* Gold Back Button */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  transition: opacity 0.15s ease;
+}
+
+.bank-header h2 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-primary-dark);
+}
+
+/* ==========================================================================
+   CORE CONTENT STRUCTURE & AVATAR CENTERPIECE REPLICA
+   ========================================================================== */
+.honda-bank-container {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 84px 14px 40px 14px;
+  box-sizing: border-box;
+}
+
+.honda-bank-form {
+  width: 100%;
+  background-color: var(--surface-pure-white);
+  border-radius: 24px; /* Soft round corners matching screenshot */
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-divider-line);
+}
+
+/* Top Centerpiece Icon badge - Converted to Luxury Gold */
+.bank-avatar-centerpiece {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.bank-icon-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #1E1A12; /* Dark Gold/Amber translucent background */
+  border: 1px solid rgba(234, 206, 143, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-royal-blue); /* Solid Luxury Gold Bank Icon */
+  margin-bottom: 12px;
+}
+
+.bank-form-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary-dark);
+  letter-spacing: -0.02em;
+}
+
+/* ==========================================================================
+   FORM CONTROLS & LABELS
+   ========================================================================== */
+.honda-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.honda-input-label {
+  color: var(--text-primary-dark);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  padding-left: 2px;
+}
+
+.honda-bank-form input,
+.honda-bank-form select {
+  background-color: var(--input-fill-tint);
+  border: 1px solid var(--border-divider-line);
+  border-radius: 12px;
+  padding: 15px 16px;
+  color: var(--text-primary-dark);
+  font-size: 14.5px;
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Uppercase placeholder values matching screenshot */
+.honda-bank-form input::placeholder {
+  color: #5C5850;
+  font-weight: 500;
+}
+
+/* Gold border highlight glow on input focus */
+.honda-bank-form input:focus,
+.honda-bank-form select:focus {
+  border-color: var(--primary-royal-blue);
+  background-color: #171513;
+  box-shadow: 0 0 0 3px rgba(234, 206, 143, 0.1);
+}
+
+/* Read-Only Gray state for auto-resolving account details */
+.honda-bank-form input[readonly] {
+  background-color: #0E0E0D;
+  color: var(--text-slate-muted);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.honda-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.honda-select-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid var(--text-slate-muted);
+  border-bottom: 2px solid var(--text-slate-muted);
+  transform: translateY(-65%) rotate(45deg);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   SECURITY INFORMATION NOTICE CARD (REPLICA SHAPE)
+   ========================================================================== */
+.honda-notice-card {
+  background-color: #0E0E0D;
+  border-radius: 12px;
+  padding: 14px;
+  box-sizing: border-box;
+  border: 1px solid var(--border-divider-line);
+}
+
+.notice-flex-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.notice-circle {
+  color: var(--primary-royal-blue); /* Converted notice icon to Gold */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2px;
+  flex-shrink: 0;
+}
+
+.notice-content {
+  color: var(--text-slate-muted);
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 400;
+  text-align: left;
+}
+
+/* ==========================================================================
+   ACTION BUTTON SETUP (SOLID DYNAMIC LUXURY GOLD BUTTON REPLICA)
+   ========================================================================== */
+.honda-submit-btn {
+  width: 100%;
+  background-color: var(--primary-royal-blue); /* Full Premium Luxury Gold */
+  color: #070706; /* High contrast dark onyx typography over gold background */
+  border: none;
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+  margin-top: 5px;
+  box-shadow: 0 4px 20px rgba(234, 206, 143, 0.15);
+}
+
+.honda-submit-btn:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+
+
+.recharge-header-fixed {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  gap: 15px;
+}
+
+.recharge-header-fixed h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+}
+
+.recharge-page-container {
+  padding: 0 16px 20px 16px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Base Card Elements */
+.payment-card {
+  background: #1c2333;
+  border-radius: 24px;
+  padding: 20px;
+  margin-top: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.card-header-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Individual Data Row Panels */
+.info-row {
+  background: #0f141e;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  border-radius: 16px;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.info-label {
+  color: #6b7280;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+.info-value {
+  color: #3b82f6; 
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+/* Dynamic Rounded Copy Buttons */
+.copy-icon-btn {
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Banner Indicator Display */
+.amount-banner {
+  background: #0f141e; 
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.amount-banner span {
+  font-size: 1.2rem;
+  color: #3b82f6;
+}
+
+/* Styled Alert Sub-Box Notification Box */
+.warning-alert-box-amber {
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.15);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.alert-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.alert-item i {
+  color: #fbbf24;
+  font-size: 0.9rem;
+  margin-top: 3px;
+}
+
+.alert-item p {
+  color: #fde68a;
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Input Styles */
+.input-label {
+  display: block;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #9ca3af;
+  margin: 16px 0 6px 2px;
+}
+
+.payment-input {
+  width: 100%;
+  background: #0f141e;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px;
+  border-radius: 14px;
+  outline: none;
+  font-size: 0.9rem;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+.payment-input:focus {
+  border-color: #3b82f6;
+}
+
+.expiry-text {
+  color: #6b7280;
+  font-size: 0.78rem;
+  margin-top: 20px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Luxury Interactive UI Buttons */
+.primary-gradient-btn {
+  background: linear-gradient(90deg, #2c0091, #1a0055);
+  color: #ffffff;
+  border: none;
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.change-amount-btn {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #1c2333;
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+/* Bottom Technical Help Info Wrapper Box */
+.help-box {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 18px;
+  margin-top: 25px;
+}
+
+.help-box h4 {
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 6px;
+  font-size: 0.92rem;
+}
+
+.help-box p {
+  color: #6b7280;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.recharge-page {
+  background: #141312;
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+.rc-header {
+  background: #070706;
+  padding: 14px 16px;
+  border-bottom: 1px solid #2A2825;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.rc-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  position: relative;
+}
+
+.rc-header-title {
+  position: absolute;
+  left: 40%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #3B82F6;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.rc-back-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 12px;
+  background: #2A2825;
+  color: #3B82F6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.rc-balance {
+  text-align: right;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.rc-balance-label {
+  display: block;
+  color: #9CA3AF;
+  font-size: 11px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.rc-balance-value {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #3B82F6;
+}
+
+/* CONTAINER */
+.recharge-page-container {
+  padding: 16px;
+}
+
+/* ONLINE PAYMENT CARD */
+.payment-type-card {
+  background: #070706;
+  border: 1px solid #2A2825;
+  border-radius: 20px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.payment-type-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #2A2825;
+  color:#3B82F6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.payment-type-info h4 {
+  margin: 0 0 3px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #3B82F6;
+}
+
+.payment-type-info p {
+  margin: 0;
+  font-size: 12px;
+  color: #9CA3AF;
+}
+
+/* MAIN CARD */
+.recharge-card {
+  background: #070706;
+  border: 1px solid #2A2825;
+  border-radius: 28px;
+  padding: 22px;
+  margin-bottom: 16px;
+}
+
+/* LABELS */
+.section-label {
+  margin: 0 0 14px;
+  color: #9CA3AF;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.or-custom-label {
+  text-align: center;
+  color: #9CA3AF;
+  font-size: 13px;
+  margin: 18px 0 12px;
+}
+
+/* AMOUNT GRID */
+.amount-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+/* AMOUNT CHIPS */
+.amount-option {
+  min-height: 80px;
+  background: #141312;
+  border: 2px solid #2A2825;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #3B82F6;
+  cursor: pointer;
+  transition: all .2s ease;
+  gap: 4px;
+  padding: 10px 6px;
+}
+
+.amount-option::before {
+  content: '₦';
+  font-size: 11px;
+  font-weight: 600;
+  color: #9CA3AF;
+}
+
+.amount-option:hover {
+  border-color: #3B82F6;
+  background: #2A2825;
+}
+
+.amount-option.active {
+  border-color: #3B82F6;
+  background: #2A2825;
+  color: #3B82F6;
+}
+
+.amount-option.active::before {
+  color: #3B82F6;
+}
+
+/* INPUT */
+.custom-amount-wrapper {
+  position: relative;
+}
+
+.currency-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  font-weight: 700;
+  color: #9CA3AF;
+}
+
+#customAmount {
+  width: 100%;
+  height: 64px;
+  border: 2px solid #2A2825;
+  border-radius: 18px;
+  padding-left: 52px;
+  padding-right: 16px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #3B82F6;
+  background: #141312;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+#customAmount::placeholder { color: #2A2825; }
+#customAmount:focus { border-color: #3B82F6; }
+
+/* DEPOSIT BUTTON */
+.deposit-btn {
+  width: 100%;
+  height: 58px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 18px;
+  background: #3B82F6;
+  color: #070706;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: .2s;
+}
+
+.deposit-btn:hover { background: #3B82F6; }
+.deposit-btn:active { transform: scale(.98); }
+
+/* SSL */
+.ssl-security-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+  color: #9CA3AF;
+}
+
+.ssl-security-notice span { font-size: 12px; }
+
+/* GUIDELINES */
+.info-guidelines-box {
+  background: #070706;
+  border: 1px solid #2A2825;
+  border-radius: 24px;
+  padding: 20px;
+}
+
+.guidelines-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: #3B82F6;
+}
+
+.info-title {
+  margin: 0;
+  color: #3B82F6;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-list li {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.info-list li:last-child { margin-bottom: 0; }
+
+.info-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #2A2825;
+  color: #3B82F6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.info-list p {
+  margin: 0;
+  color: #9CA3AF;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.highlight-#3B82F6 {
+  color: #3B82F6;
+  font-weight: 700;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .amount-grid { gap: 10px; }
+  .amount-option { min-height: 70px; font-size: 14px; }
+  #customAmount { font-size: 20px; }
+}
+
+
+
+.pay-page {
+  background: #141312;
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+.pay-container {
+  padding: 16px;
+}
+
+/* AMOUNT CARD */
+.pay-amount-card {
+  background: #070706;
+  border: 1px solid #2A2825;
+  border-radius: 24px;
+  padding: 24px 20px 18px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.pay-amount-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #9CA3AF;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.pay-amount-value {
+  font-size: 48px;
+  font-weight: 800;
+  color: #3B82F6;
+  margin-bottom: 16px;
+}
+
+.pay-countdown-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  border-top: 1px solid #2A2825;
+  font-size: 14px;
+  color: #9CA3AF;
+}
+
+.pay-timer {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3B82F6;
+  font-variant-numeric: tabular-nums;
+}
+
+.pay-timer.urgent { color: #ef4444; }
+
+/* BANK DETAILS CARD */
+.pay-details-card {
+  background: #070706;
+  border: 1px solid #2A2825;
+  border-radius: 24px;
+  padding: 6px 20px;
+  margin-bottom: 14px;
+}
+
+.pay-detail-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid #2A2825;
+}
+
+.pay-detail-label {
+  font-size: 14px;
+  color: #9CA3AF;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.pay-detail-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pay-detail-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: #3B82F6;
+  text-align: right;
+}
+
+.pay-note-value {
+  color: #3B82F6;
+  letter-spacing: 1px;
+}
+
+.pay-copy-btn {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 10px;
+  background: #2A2825;
+  color: #3B82F6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: .2s;
+}
+
+.pay-copy-btn:active {
+  background: #3B82F6;
+  color: #070706;
+  transform: scale(.93);
+}
+
+/* NOTE BOX */
+.pay-note-box {
+  background: #2A2825;
+  border: 1px solid #3B82F630;
+  border-radius: 16px;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: #9CA3AF;
+  line-height: 1.6;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.pay-note-box svg {
+  color: #3B82F6;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pay-note-box strong {
+  color: #3B82F6;
+}
+
+/* WARNING BOX */
+.pay-warning-box {
+  background: #070706;
+  border: 1px solid #2A2825;
+  border-radius: 20px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+.pay-warning-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  color: #9CA3AF;
+  line-height: 1.6;
+}
+
+.pay-warning-item:last-child { margin-bottom: 0; }
+
+.pay-warn-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #2A2825;
+  color: #3B82F6;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pay-warn-red {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Our Luxury Signature Palette Mappings */
+  --gold-primary: #3B82F6;
+  --gold-secondary: #9CA3AF;
+  --dark-black: #FFFFFF;
+  --dark-gray: #F9FAFB;
+  --charcoal: #2A2825;
+}
+
+/* ===== SCREEN PORT MASK BACKGROUND OVERLAY ===== */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  background: rgba(0, 0, 0, 0.75) !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 100000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* ===== THE 2-TONE POPUP MODAL FRAME WRAPPER ===== */
+.mx-unique-modal {
+  width: 100%;
+  max-width: 360px;
+  background: #FFFFFF !important; /* Sharp pure white lower block as seen in screenshot */
+  border-radius: 24px !important;
+  overflow: hidden; /* Clips top header gradient cleanly to the curves */
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+  font-family: 'Inter', sans-serif !important;
+  box-sizing: border-box;
+  position: relative;
+  animation: modalReveal 0.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.mx-unique-modal h2 {
+  background: green;
+  border-radius: 20px;  
+  padding: 20px;
+}
+
+@keyframes modalReveal {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* =========================================================
+   EARNINGS MASTER CARD STYLES
+   ========================================================= */
+
+:root {
+  --card-bg: #0f172a;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-radius: 16px;
+  
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  
+  --row-bg: rgba(255, 255, 255, 0.03);
+  --row-border: rgba(255, 255, 255, 0.05);
+  --row-hover-bg: rgba(255, 255, 255, 0.07);
+  
+  --gold-gradient: linear-gradient(135deg, #f59e0b, #d97706);
+  --silver-gradient: linear-gradient(135deg, #94a3b8, #64748b);
+  --blue-pill-bg: rgba(59, 130, 246, 0.15);
+  --blue-pill-text: #60a5fa;
+  --blue-pill-border: rgba(59, 130, 246, 0.3);
+}
+
+/* Wrapper Layout */
+.section-block-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Main Card */
+.earnings-master-card {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+}
+
+/* Section Title */
+.section-block-title {
+  margin: 0 0 20px 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+/* Tier Row */
+.earnings-tier-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--row-bg);
+  border: 1px solid var(--row-border);
+  padding: 14px 18px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.earnings-tier-row:last-child {
+  margin-bottom: 0;
+}
+
+.earnings-tier-row:hover {
+  background-color: var(--row-hover-bg);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Badge Indicators */
+.tier-badge-indicator {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #ffffff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.badge-gold {
+  background: var(--gold-gradient);
+}
+
+.badge-silver {
+  background: var(--silver-gradient);
+}
+
+/* Text Content */
+.tier-info-text {
+  flex-grow: 1;
+}
+
+.tier-info-text h4 {
+  margin: 0 0 4px 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.tier-info-text p {
+  margin: 0;
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+/* Reward Pill */
+.tier-value-pill {
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.reward-blue-pill {
+  background-color: var(--blue-pill-bg);
+  color: var(--blue-pill-text);
+  border: 1px solid var(--blue-pill-border);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  .earnings-master-card {
+    padding: 18px;
+  }
+  
+  .earnings-tier-row {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+}
+
+/* =========================================================
+   HOW IT WORKS CARD STYLES
+   ========================================================= */
+
+:root {
+  --card-bg: #0f172a;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-radius: 16px;
+  
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  
+  --step-bg: rgba(255, 255, 255, 0.02);
+  --step-border: rgba(255, 255, 255, 0.04);
+  --step-hover-bg: rgba(255, 255, 255, 0.05);
+  
+  --icon-header-color: #38bdf8;
+  --check-icon-color: #10b981;
+  --highlight-#3B82F6-bg: rgba(245, 158, 11, 0.15);
+  --highlight-#3B82F6-text: #fbbf24;
+  --highlight-#3B82F6-border: rgba(245, 158, 11, 0.3);
+}
+
+/* Main Card */
+.how-it-works-card {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+}
+
+/* Header Section */
+.how-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.how-header i {
+  font-size: 1.4rem;
+  color: var(--icon-header-color);
+}
+
+.how-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+/* Individual Step Item */
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background-color: var(--step-bg);
+  border: 1px solid var(--step-border);
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  transition: all 0.2s ease-in-out;
+}
+
+.step-item:last-child {
+  margin-bottom: 0;
+}
+
+.step-item:hover {
+  background-color: var(--step-hover-bg);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Check Icon */
+.step-check-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px; /* Aligns visually with text top line */
+  flex-shrink: 0;
+}
+
+.step-check-icon i {
+  font-size: 1.1rem;
+  color: var(--check-icon-color);
+}
+
+/* Step Content Text */
+.step-content p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-main);
+}
+
+/* Inline Yellow Highlights */
+.highlight-#3B82F6 {
+  display: inline-block;
+  background-color: var(--highlight-#3B82F6-bg);
+  color: var(--highlight-#3B82F6-text);
+  border: 1px solid var(--highlight-#3B82F6-border);
+  padding: 1px 7px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+  .how-it-works-card {
+    padding: 18px;
+  }
+
+  .step-item {
+    padding: 12px;
+    gap: 10px;
+  }
+}
+
+/* ===== UPPER SECTION: LUXURY GOLD INDIGO REPLACEMENT GRADIENT ===== */
+.mx-modal-header-gradient {
+  background: linear-gradient(135deg, var(--dark-black) 0%, var(--dark-gray) 50%, #211f1b 100%) !important;
+  padding: 32px 20px 28px 20px;
+  text-align: left; /* Aligned left exactly like screenshot image */
+  position: relative;
+  border-bottom: 1px solid rgba(188, 144, 79, 0.1);
+}
+
+/* Micro Greeting Badge Header */
+.mx-welcome-sparkle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.7) !important;
+  margin-bottom: 14px;
+}
+.mx-welcome-sparkle svg { width: 13px; height: 13px; fill: var(--gold-primary); stroke: var(--gold-primary); }
+.mx-welcome-sparkle span { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; }
+
+/* Sharp White Typography over Gradient Base */
+.mx-modal-title {
+  font-size: 24px !important;
+  font-weight: 600 !important; /* Not too bold clean density profile */
+  color: #FFFFFF !important;
+  margin: 0 0 10px 0 !important;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.mx-modal-subtitle {
+  font-size: 13.5px !important;
+  font-weight: 400 !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+  margin: 0 !important;
+  line-height: 1.4;
+  background-color: #0088cc;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+/* Right Corner Exit Node */
+.mx-close-x-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  background: gray !important;
+  border: none !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 100%;
+  transition: color 0.2s ease;
+}
+.mx-close-x-btn:hover { color: #FFFFFF !important; }
+.mx-close-x-btn svg { width: 16px; height: 16px; }
+
+/* ===== LOWER SECTION: ACTIONS CONTENT CORE ===== */
+.mx-modal-body-content {
+  padding: 24px 16px 24px 16px;
+  background: #FFFFFF !important;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Main CTA Premium Gradient Replacement Button */
+.mx-button-group {
+  width: 100%;
+}
+.mx-invest-now-btn {
+  width: 100%;
+  /* Our premium luxury gradient choice to match screenshot layout button pop style */
+  background: green !important;
+  border: 1px solid rgba(188, 144, 79, 0.3) !important;
+  color: #FFFFFF !important;
+  padding: 14px 16px;
+  border-radius: 12px !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important; /* Not too bold elegant profile styling */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: transform 0.1s ease;
+  box-sizing: border-box;
+}
+.mx-invest-now-btn:active { transform: scale(0.98); }
+.btn-sparkle-icon { width: 14px; height: 14px; fill: var(--gold-primary); stroke: var(--gold-primary); }
+
+/* Telegram Full Width Action Button Row Layout */
+.mx-telegram-group-row {
+  width: 100%;
+}
+.mx-community-card-btn {
+  width: 100%;
+  background-color: #229ED9 !important; /* Official clean telegram blue */
+  border: none !important;
+  color: #FFFFFF !important;
+  padding: 14px 16px;
+  border-radius: 12px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(34, 158, 217, 0.2);
+  transition: transform 0.1s ease, filter 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.mx-community-card-btn:active { transform: scale(0.98); }
+.mx-community-card-btn:hover { filter: brightness(1.06); }
+.mx-tg-svg { width: 15px; height: 15px; color: #FFFFFF !important; }
+
+
+#welcomePopup {
+  display: none; /* Changed from none to flex for visibility during testing */
+}
+
+/* DAILY LOADER OVERLAY */
+.daily-loader{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  z-index:9999;
+}
+
+/* 3D SPINNER */
+.spinner-3d{
+  width:60px;
+  height:60px;
+  border:6px solid rgba(255,255,255,0.2);
+  border-top:6px solid #00c2ff;
+  border-radius:50%;
+  animation:spin3d 1s linear infinite;
+  margin-bottom:15px;
+}
+
+@keyframes spin3d{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+
+.daily-loader p{
+  color:white;
+  font-weight:600;
+  font-size:16px;
+}
+
+
+/* ===== PRODUCT PAGE ===== */
+.product-page {
+  width: 100%;
+  padding: 20px;
+  padding-bottom: 80px;
+  padding-top: 65px; /* space for fixed header */
+  background: #ffffff; /* white background */
+  min-height: 100vh;
+  color: #ffffff;      /* white text */
+  display: none;       /* show when active */
+}
+
+/* ===== FIXED HEADER ===== */
+.product-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #070706; /* Liquid Obsidian Base */
+  padding: 12px 0;
+  z-index: 1000;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #FFFFFF;      /* White text */
+  border-bottom: 1px solid #141311;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.product-header i {
+  margin-right: 8px;
+  color: #3B82F6; /* Luxury Gold icon decoration */
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* System Theme Tokens Mapping - Luxury Dark Premium Ecosystem */
+  --bg-main: #070706 !important;          /* Deep Liquid Obsidian App Backdrop */
+  --bg-banner: #0B0B0A !important;        /* Dark Top Header Sheet Background Panel */
+  --bg-card-white: #131211 !important;    /* Polished Charcoal-Obsidian Core Card */
+  --bg-input-tint: #1C1A18 !important;    /* Deep Muted Base Sockets For Form Fields */
+  --text-dark: #FFFFFF !important;        /* Crisp High Contrast Bold Copy */
+  --text-muted: #9E998E !important;       /* Warm Gold-Tinted Secondary Slate Info */
+  --accent-blue: #3B82F6 !important;      /* Core FinTech Luxury Gold Accent Hues */
+  --border-soft: #22201D !important;      /* Ultra-thin Structural Panel Rule Divider */
+}
+
+/* ================= MASTER PAGE ================= */
+.invite-page {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow-y: scroll !important;
+  -webkit-overflow-scrolling: touch !important;
+  z-index: 999 !important;
+  background-color: var(--bg-main) !important;
+  font-family: 'Inter', sans-serif !important;
+  color: var(--text-dark) !important;
+  display: none;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+  padding-bottom: 80px !important;
+}
+
+/* ================= HEADER ================= */
+.invite-header-fixed-v2 {
+  position: relative !important;
+  width: 100% !important;
+  height: 140px !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  padding: 24px 20px 0 20px !important;
+  background-color: var(--bg-banner) !important;
+  border-bottom: 1px solid var(--border-soft) !important;
+  box-sizing: border-box !important;
+  flex-shrink: 0 !important;
+}
+
+.invite-header-fixed-v2 h2 {
+  margin: 0 !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  color: var(--text-dark) !important;
+  letter-spacing: -0.01em !important;
+}
+
+.invite-back-btn-v2 {
+  position: absolute !important;
+  left: 16px !important;
+  top: 22px !important;
+  background: transparent !important;
+  border: none !important;
+  color: #3B82F6 !important; /* Gold Back Action Link */
+  font-size: 16px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 4px !important;
+}
+
+/* Force back button SVGs to stay gold if they use stroke/fill */
+.invite-back-btn-v2 svg, 
+.invite-back-btn-v2 path {
+  stroke: var(--accent-blue) !important;
+  fill: none !important;
+}
+
+/* ================= SCROLL CONTAINER ================= */
+.referral-container {
+  width: 100% !important;
+  max-width: 430px !important;
+  margin: 0 auto !important;
+  padding: 0 14px 100px 14px !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+}
+
+.section-block-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+}
+
+.section-block-title {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--text-dark) !important;
+  letter-spacing: -0.02em !important;
+  margin: 0 0 14px 4px !important;
+  text-align: center !important;
+}
+
+/* ================= LUXURY CARDS ================= */
+.referral-master-card,
+.earnings-master-card,
+.how-it-works-card {
+  background-color: var(--bg-card-white) !important;
+  border-radius: 16px !important;
+  padding: 20px 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid var(--border-soft) !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+
+.referral-master-card {
+  margin-top: -65px !important;
+  z-index: 20 !important;
+  position: relative !important;
+}
+
+.referral-inner-brick {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  margin-bottom: 20px !important;
+}
+
+.referral-inner-brick:last-child {
+  margin-bottom: 0 !important;
+}
+
+.card-label {
+  color: var(--text-muted) !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  margin: 0 auto 10px auto !important;
+  text-align: center !important;
+}
+
+/* ================= INPUT ROWS ================= */
+.copy-input-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background-color: var(--bg-input-tint) !important;
+  border-radius: 12px !important;
+  padding: 0 16px !important;
+  height: 52px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin-bottom: 12px !important;
+  border: 1px solid var(--border-soft) !important;
+  transition: border-color 0.2s ease !important;
+}
+
+/* Force elements inside wrapper to have zero native blue focus */
+.copy-input-wrapper:focus-within {
+  border-color: var(--accent-blue) !important;
+  box-shadow: 0 0 0 3px rgba(188, 144, 79, 0.1) !important;
+}
+
+.code-display {
+  color: var(--text-dark) !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  letter-spacing: 0.5px !important;
+}
+
+.link-display {
+  flex: 1 !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: var(--text-dark) !important;
+  font-size: 13.5px !important;
+  font-family: inherit !important;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  padding: 0 !important;
+}
+
+/* Prevent native tap or autofill highlight boxes on inputs */
+.link-display:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.copy-inline-icon {
+  color: #3B82F6 !important; /* Gold inline link icon */
+  font-size: 15px !important;
+  cursor: pointer !important;
+  padding-left: 10px !important;
+  transition: opacity 0.1s ease !important;
+}
+
+.copy-inline-icon:active {
+  opacity: 0.6 !important;
+}
+
+/* Force any SVG/FontAwesome iconography here to stay gold */
+.copy-inline-icon i,
+.copy-inline-icon svg,
+.copy-inline-icon path {
+  color: var(--accent-blue) !important;
+  fill: currentcolor !important;
+}
+
+/* ================= BUTTONS (SOLID LUXURY GOLD) ================= */
+.copy-action-btn {
+  width: 100% !important;
+  background-color: #3B82F6 !important;
+  color: #070706 !important; /* Dark text over gold for crisp visibility */
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 14px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  font-family: inherit !important;
+  cursor: pointer !important;
+  transition: transform 0.1s ease, opacity 0.1s ease !important;
+  box-shadow: 0 4px 16px rgba(188, 144, 79, 0.15) !important;
+  outline: none !important;
+}
+
+.copy-action-btn:active {
+  transform: scale(0.98) !important;
+  opacity: 0.9 !important;
+}
+
+.copy-action-btn:focus {
+  outline: none !important;
+  box-shadow: 0 4px 16px rgba(188, 144, 79, 0.3) !important;
+}
+
+
+/* --- Optimized Full-Width Market Wave Styles --- */
+
+/* Parent Container Reset */
+.card-wrapper {
+  width: 100%;
+  padding: 0 15px; /* Adds consistent spacing from screen edges */
+  box-sizing: border-box;
+}
+
+/* Main Card: Forces full width usage */
+.market-wave-card {
+  background: #0c0d10;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 20px;
+  color: #fff;
+  font-family: sans-serif;
+  width: 100%; /* Spreads fully */
+  box-sizing: border-box; 
+  margin-bottom: 20px;
+}
+
+/* Navigation Tabs: Full width */
+.top-nav { 
+  display: flex; 
+  background: #1a1c23; 
+  border-radius: 8px; 
+  padding: 4px; 
+  margin-bottom: 20px; 
+  width: 100%;
+}
+.nav-tab { 
+  flex: 1; 
+  border: none; 
+  padding: 10px; 
+  border-radius: 6px; 
+  cursor: pointer; 
+  background: transparent; 
+  color: #888; 
+  font-weight: bold; 
+  font-size: 13px; 
+}
+.nav-tab.active { background: #3B82F6; color: #000; }
+
+/* Wave Visual Area: Adds the grid look and stretches */
+.wave-visual-area { 
+  height: 160px; 
+  position: relative; 
+  border-bottom: 1px solid #1a1c23; 
+  margin-bottom: 20px; 
+  width: 100%;
+  background-image: radial-gradient(#1c1a18 1px, transparent 1px);
+  background-size: 20px 20px; /* Creates the grid effect */
+}
+
+.center-circle { 
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+  width: 75px; height: 75px; border: 2px solid #3B82F6; border-radius: 50%; 
+  display: flex; flex-direction: column; align-items: center; justify-content: center; 
+  background: #0c0d10; color: #3B82F6; z-index: 10;
+  box-shadow: 0 0 20px rgba(234, 206, 143, 0.2);
+}
+.work-val { font-weight: bold; font-size: 16px; }
+.work-lbl, .work-sub { font-size: 7px; letter-spacing: 0.5px; }
+
+/* Markers */
+.marker { position: absolute; color: #3B82F6; font-size: 10px; text-align: center; font-weight: 600; }
+
+/* Status & Profit: Fully spread left and right */
+.status-bar { 
+  display: flex; justify-content: space-between; 
+  font-size: 11px; color: #777; margin-bottom: 20px; 
+  width: 100%; 
+}
+.profit-footer { 
+  display: flex; justify-content: space-between; align-items: center; 
+  width: 100%; gap: 10px;
+}
+.total-val { color: #4ade80; margin: 0; font-size: 20px; }
+
+/* Take Profit Button */
+.take-profit-btn { 
+  background: #3B82F6; color: #000; border: none; padding: 12px 24px; 
+  border-radius: 8px; font-weight: bold; cursor: pointer; 
+  flex-grow: 1; /* Button grows to take available space */
+}
+.take-profit-btn:disabled { background: #1a1c23; color: #444; cursor: not-allowed; }
+.hint { text-align: center; font-size: 9px; color: #444; margin-top: 10px; }
+
+
+
+
+
+.wave-visual-area { 
+  height: 160px; 
+  position: relative; 
+  border-bottom: 1px solid #1a1c23; 
+  margin-bottom: 20px; 
+  width: 100%;
+  overflow: hidden; /* Keeps the wave inside the box */
+}
+
+.wave-svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Optional: Add a gentle glow to the wave line */
+.wave-svg path {
+  stroke: #3B82F6;
+  filter: drop-shadow(0 0 5px #3B82F6);
+}
+
+/* 1. The wrapper for EACH injected card */
+.wave-investment-item {
+  width: 100%;
+  margin-bottom: 20px; /* Space between cards */
+  display: block;      /* Ensures they stack vertically */
+  box-sizing: border-box;
+}
+
+/* 2. The main container for the list */
+#investment-list-container {
+  width: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* Force vertical stacking */
+}
+
+/* 3. Ensure the inner market card fits perfectly inside the wrapper */
+.market-wave-card {
+  background: #0c0d10;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 20px;
+  color: #fff;
+  width: 100%;
+  box-sizing: border-box; /* Crucial: includes padding in width */
+}
+
+/* Container for the list */
+.card-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Forces cards to stack vertically */
+  gap: 15px;              /* Adds space between cards */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Style for each individual injected card */
+.wave-investment-item {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure the Market Wave Card inside fits the width */
+.market-wave-card {
+  width: 100%;
+  box-sizing: border-box;
+  /* ... your existing market-wave-card styles ... */
+}
+
+
+.wave-visual-area {
+  position: relative;
+  overflow: visible;
+  /* Adds extra padding at the top to ensure labels don't get cut off */
+  padding-top: 15px; 
+}
+
+.wave-markers-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.wave-marker {
+  position: absolute;
+  top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%); /* Crucial: This centers the label on the dot */
+  width: 40px;                /* Crucial: Keeps the label from expanding too wide */
+}
+
+.wave-marker {
+  position: absolute;
+  top: 10%; /* Lifted higher to avoid overlapping the SVG wave path */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.marker-dot {
+  width: 6px;
+  height: 6px;
+  background: #3B82F6;
+  border-radius: 50%;
+  margin-bottom: 6px;
+  box-shadow: 0 0 8px #3B82F6; /* Adds a soft glow to the dots */
+}
+
+.marker-val {
+  font-size: 10px;          /* Increased size for better readability */
+  color: #FFFFFF;           /* Changed to White for maximum contrast */
+  font-weight: 900;         /* Maximum boldness */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transform: rotate(-45deg);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Adds depth so text pops */
+  white-space: nowrap;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.wave-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+}
+
+.text-white {
+  color: #FFFFFF;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.text-gold {
+  color: #3B82F6;
+  /* Adds that glowing golden metallic pop */
+  text-shadow: 0 0 12px rgba(255, 255, 0, 0.6);
+}
+
+.sell-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 12px;
+}
+
+.sell-pill-btn {
+  /* Premium Metallic Gold Gradient */
+  background: linear-gradient(135deg, #f5d68d 0%, #3B82F6 50%, #c4a763 100%);
+  color: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 6px 20px;
+  border-radius: 50px;
+  
+  /* Typography */
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  
+  /* Effects */
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(234, 206, 143, 0.3);
+  transition: all 0.3s ease;
+  
+  /* Premium Touch */
+  outline: none;
+}
+
+.sell-pill-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(234, 206, 143, 0.5);
+  filter: brightness(1.1);
+}
+
+#investment-list-container {
+  padding-bottom: 80px; /* adjust this value to match your navbar height */
+}
+
+.sell-pill-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.sell-pill-btn:disabled {
+  background: #2a2a2a;
+  color: #555;
+  border: 1px solid #333;
+  box-shadow: none;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+/* ================= GLOBAL DESIGN SYSTEM TOKENS ================= */
+:root {
+  --bg-main: #FFFFFF;              /* Premium Liquid Obsidian Base Canvas Sheet */
+  --bg-card-surface: #FFFFFF;      /* Polished Dark Luxury Module Surface */
+  --charcoal-border: #22201D;      /* Razor Crisp Separator Hairline Metrics */
+  --gold-primary: #3B82F6;         /* Glistening Core Luxury Gold Accent */
+  --gold-muted: #8A7F6A;           /* Subtext tracking gray-gold alphabetic layer */
+  
+  --text-main: #3B82F6;
+  --text-muted: #9E998E;
+  
+  /* System Native Static Colors from original team view graphic wireframe mapping */
+  --app-blue: #2563EB;
+  --app-green: #10B981;
+  --app-orange: #F97316;
+}
+
+#earningsPage {
+  background-color: var(--bg-main) !important;
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.recharge-page-container {
+  padding: 80px 14px 40px 14px;
+  max-width: 480px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ================= STICKY TOP NAVIGATION BAR ================= */
+.team-header-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: #0B0B0A !important;
+  border-bottom: 1px solid var(--charcoal-border);
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.team-header-main span {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main) !important;
+  letter-spacing: -0.2px;
+}
+
+.back-btn-white, .header-refresh-action {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: transparent !important;
+  color: var(--text-muted) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  outline: none;
+  transition: color 0.2s ease;
+}
+
+.back-btn-white:active, .header-refresh-action:active {
+  color: var(--gold-primary) !important;
+}
+
+/* ================= HOW IT WORKS REPLICA BANNER ================= */
+.how-it-works-notice-card {
+  background: #1C150A; /* Elegant Gold Hue Translucent Bleed Tint */
+  border: 1px solid rgba(234, 206, 143, 0.15);
+  border-radius: 16px;
+  padding: 14px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.notice-info-trigger-icon {
+  color: var(--app-orange);
+  font-size: 16px;
+  padding-top: 1px;
+}
+
+.notice-body-text-block {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #D6CFC4;
+}
+
+.notice-title-label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 3px;
+}
+
+.gold-highlight-text {
+  color: var(--gold-primary);
+  font-weight: 700;
+}
+
+/* ================= CORE 6-PACK GRID CONFIGURATION ================= */
+.premium-sixpack-container {
+  background: var(--bg-card-surface);
+  border-radius: 16px;
+  padding: 16px 12px;
+  border: 1px solid var(--charcoal-border);
+  margin-bottom: 24px;
+}
+
+.sixpack-grid-structure {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 20px;
+  column-gap: 6px;
+  text-align: center;
+}
+
+.sixpack-item-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sixpack-icon-wrapper {
+  font-size: 15px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Base Icon Colors Mapped from Replica Screen Wireframes */
+.blue-icon-theme { color: #3B82F6; }
+.gold-icon-theme { color: var(--gold-primary); }
+.green-icon-theme { color: var(--app-green); }
+.gold-star-theme { color: #EAB308; }
+.empty-star-theme { color: #A1A1AA; }
+.moon-icon-theme { color: #60A5FA; }
+
+.sixpack-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.sixpack-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ================= INTERACTIVE PILL NAVIGATION SEGMENTS ================= */
+.segmented-pill-navigation-wrapper {
+  display: flex;
+  background: #141312;
+  border: 1px solid var(--charcoal-border);
+  padding: 4px;
+  border-radius: 30px;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+.navigation-pill-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 8px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* High Contrast Active Focus State Indicator Match */
+.navigation-pill-btn.state-active {
+  background: var(--app-blue) !important;
+  color: #FFFFFF !important;
+}
+
+/* ================= INTERACTIVE TEAM DETAIL VIEWS ================= */
+.interactive-detail-view-shell {
+  margin-top: 10px;
+}
+
+.list-title-header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.dynamic-list-heading {
+  color: var(--text-main);
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.close-panel-pill {
+  background: transparent;
+  border: 1px solid var(--charcoal-border);
+  color: var(--text-muted);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* ================= MEMBER CARDS SYSTEM ================= */
+.user-list-wrapper-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tier-card {
+  background: var(--bg-card-surface);
+  border-radius: 14px;
+  padding: 14px;
+  border: 1px solid var(--charcoal-border);
+}
+
+.tier-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.tier-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.tier-badge {
+  background: #1E1B15;
+  color: var(--gold-primary);
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(234, 206, 143, 0.15);
+}
+
+.inner-user-grid-display {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  text-align: center;
+}
+
+.inner-user-box {
+  background: #0B0B0A;
+  border: 1px solid var(--charcoal-border);
+  border-radius: 8px;
+  padding: 8px 4px;
+}
+
+.inner-user-value {
+  color: var(--gold-primary);
+  font-size: 11.5px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.inner-user-label {
+  color: var(--text-muted);
+  font-size: 9px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+/* ================= REPLICA EMPTY STATE VECTORS ================= */
+.empty-state-vector-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.empty-vector-network-icon {
+  font-size: 42px;
+  color: #1F242F; /* Subdued deep gray-blue wire network tint */
+  margin-bottom: 16px;
+}
+
+.empty-state-main-prompt {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin: 0 0 6px 0;
+}
+
+.referral-trigger-action-link {
+  font-size: 12.5px;
+  color: var(--app-blue);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.referral-trigger-action-link:active {
+  color: var(--gold-primary);
+}
+
+/* ================= SYSTEM PARAMETERS VAULT BLOCK ================= */
+.hidden-clipboard-vault-card {
+  background: #0B0B0A;
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid var(--charcoal-border);
+}
+.vault-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.vault-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.vault-string-code {
+  font-family: monospace;
+  font-size: 16px;
+  color: var(--gold-primary);
+  font-weight: bold;
+}
+.vault-copy-action-btn {
+  background: var(--bg-card-surface);
+  border: 1px solid var(--charcoal-border);
+  color: var(--text-main);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Master Sheet Base setup — NO !important DISPLAY FORCE */
+.withdraw-page {
+  font-family: 'Inter', sans-serif;
+  background-color: #070706; /* Liquid Obsidian Backdrop */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  flex-direction: column;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  z-index: 2000;
+}
+
+/* Scoped Navigation Top Header */
+.withdraw-page .wd-header-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #070706;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  box-sizing: border-box;
+  z-index: 100;
+  border-bottom: 1px solid #141311;
+}
+
+.withdraw-page .wd-header-fixed h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.5px;
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.withdraw-page .wd-back-btn-v2 {
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.withdraw-page .history-btn {
+  background: transparent;
+  border: none;
+  color: #3B82F6; /* Luxury Gold Link instead of green */
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Scoped Flow Canvas */
+.withdraw-page .wd-recharge-container {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 76px 14px 50px 14px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Scoped Current Balance Premium Layout Module */
+.withdraw-page .wd-balance-card {
+  width: 100%;
+  background-color: #131211;
+  border-radius: 16px;
+  padding: 22px 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(234, 206, 143, 0.04);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.withdraw-page .wd-balance-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.withdraw-page .wd-balance-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #9E998E;
+}
+
+.withdraw-page .wd-balance-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #3B82F6; /* Forced back to signature Gold */
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.withdraw-page .wd-wallet-vector {
+  position: relative;
+  color: #3b3a36;
+  display: flex;
+  align-items: center;
+}
+
+.withdraw-page .wd-arrow-indicators {
+  position: absolute;
+  top: -12px;
+  right: -4px;
+  display: flex;
+  color: #3B82F6; /* Gold indicators */
+}
+
+/* Input Segments Scopes */
+.withdraw-page .wd-segment-block {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.withdraw-page .wd-label-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.withdraw-page .wd-icon-badge {
+  color: #3B82F6; /* Section icon accent back to gold */
+  display: flex;
+  align-items: center;
+}
+
+.withdraw-page .wd-section-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.withdraw-page .wd-input-wrapper {
+  background-color: #1C1A18;
+  border: 1px solid #1C1A18;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  height: 56px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.withdraw-page .wd-input-wrapper input {
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-family: inherit;
+  font-weight: 500;
+  outline: none;
+  width: 100%;
+  padding: 0;
+}
+
+.withdraw-page .wd-input-wrapper input::placeholder {
+  color: #4c4943;
+}
+
+.withdraw-page .wd-max-link {
+  color: #3B82F6; /* Gold link anchor */
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0;
+  padding-left: 10px;
+}
+
+.withdraw-page .wd-calc-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+  padding: 0 4px;
+}
+
+.withdraw-page .wd-calc-lbl {
+  font-size: 12px;
+  font-weight: 500;
+  color: #9E998E;
+}
+
+/* Connected Bank Grid Configurations */
+.withdraw-page .wd-bank-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1C1A18;
+  border: 1px solid #1C1A18;
+  padding: 16px;
+  border-radius: 12px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.withdraw-page .wd-sub-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.withdraw-page .wd-value {
+  color: #FFFFFF;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+
+.withdraw-page #withdrawAccountNumber.wd-value {
+  color: #9E998E;
+}
+
+.withdraw-page .wd-switch-side {
+  color: #3B82F6; /* Gold switch button text */
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Empty State Configurations */
+.withdraw-page .wd-bank-empty {
+  width: 100%;
+  background-color: #131211;
+  border: 1px dashed #3B82F6;
+  border-radius: 16px;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.withdraw-page .wd-add-btn {
+  background-color: #3B82F6;
+  color: #070706;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Primary Execution Solid Gold Action Button */
+.withdraw-page #withdrawSubmitBtn {
+  width: 100%;
+  background-color: #3B82F6; /* Perfectly unified luxury premium theme gold */
+  color: #070706;
+  border: none;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: inherit;
+  box-shadow: 0 4px 20px rgba(234, 206, 143, 0.15);
+  transition: transform 0.1s ease;
+}
+
+.withdraw-page #withdrawSubmitBtn:active {
+  transform: scale(0.98);
+}
+
+/* Notices Structure Lists Modules */
+.withdraw-page .wd-notice-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.withdraw-page .wd-notice-title {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #9E998E;
+  margin: 0;
+}
+
+.withdraw-page .wd-notice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.withdraw-page .wd-notice-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.withdraw-page .wd-prefix {
+  font-size: 12px;
+  color: #9E998E;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+.withdraw-page .wd-notice-list p {
+  font-size: 12px;
+  font-weight: 400;
+  color: #9E998E;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* High-resolution monitor responsive optimization layer */
+@media (min-width: 576px) {
+  .recharge-container {
+    gap: 20px;
+  }
+  .input-card-ev {
+    padding: 28px 24px;
+  }
+  .bank-info-grid {
+    gap: 12px;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* System Theme Tokens Mapping - Vanta Liquid Obsidian Luxury Setup */
+  --app-canvas-gray: #070706;     /* Deep Obsidian Base Sheet Background */
+  --card-surface-white: #131211;  /* Polished Card Surface Sockets */
+  --brand-primary-blue: #3B82F6;  /* Glistening Luxury Core Gold Accent */
+  --text-dark-navy: #3B82F6;      /* Crisp High Contrast White Copy Typography */
+  --text-slate-muted: #9E998E;    /* Clean Description Gold-Gray Alphabetic Muted Text */
+  --border-subtle-line: #22201D;  /* Ultra-thin Razor Charcoal Dividers */
+  
+  /* Status Color Palette Tokens matching original flow constraints */
+  --status-orange-text: #F97316;  /* Soft Amber/Orange text for pending attributes */
+  --status-orange-bg: #1E150A;    /* Dark Amber pill translucent socket filling */
+  
+  --app-green: #10B981;
+  --app-green-bg: #0A1E17;
+  --app-red: #EF4444;
+  --app-red-bg: #1E0A0A;
+}
+
+/* Base Viewport Container Configuration */
+.bank-page {
+  background-color: var(--app-canvas-gray) !important;
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-dark-navy);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================================
+   CLEAN FIXED HEADER (VANTA TOP NAV SHEET PANEL)
+   ========================================================================== */
+.records-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #0B0B0A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  border-bottom: 1px solid var(--border-subtle-line);
+  box-sizing: border-box;
+}
+
+.records-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-dark-navy);
+  letter-spacing: -0.01em;
+}
+
+/* Circular back button layout matching application standard styles */
+.records-back-btn {
+  position: absolute;
+  left: 16px;
+  background: transparent;
+  border: none;
+  color: var(--brand-primary-blue); /* Gleaming Gold Action */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 8px;
+  transition: opacity 0.15s ease;
+  outline: none;
+}
+
+.records-back-btn:active {
+  opacity: 0.5;
+}
+
+/* ==========================================================================
+   RECORDS CONTENT MAIN CONTENT LAYOUT
+   ========================================================================== */
+.records-content-container {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 76px 14px 40px 14px; /* Balanced mobile standard responsive frame gutter */
+  box-sizing: border-box;
+}
+
+/* Total Transactions Summary Box */
+.records-total-summary-card {
+  width: 100%;
+  background-color: var(--card-surface-white);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid var(--border-subtle-line);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.summary-metric-label {
+  font-size: 13px;
+  color: var(--text-slate-muted);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.summary-metric-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-dark-navy);
+  line-height: 1;
+}
+
+/* Dynamic Log Container Frame */
+#recordsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+  background: transparent;
+  min-height: auto;
+}
+
+/* ==========================================================================
+   RECORD CARD STYLING (PREMIUM DARK LUXURY CONFIGURATION)
+   ========================================================================== */
+.record-card {
+  width: 100%;
+  background-color: var(--card-surface-white);
+  border-radius: 14px;
+  padding: 16px;
+  box-sizing: border-box;
+  border: 1px solid var(--border-subtle-line);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+/* Top Horizontal Segment Alignment row layout details */
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
+.record-amount-label {
+  font-size: 13px;
+  color: var(--text-slate-muted);
+  font-weight: 500;
+}
+
+.record-amount-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark-navy);
+}
+
+/* Middle Row Alignment Data Layout Details */
+.card-mid-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.record-date-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-slate-muted);
+  font-size: 12.5px;
+}
+
+.record-date-wrapper i {
+  font-size: 12px;
+  color: var(--text-slate-muted);
+}
+
+/* Bottom Descriptor Footer Line Segment Styles */
+.card-bottom-row {
+  width: 100%;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-subtle-line);
+  font-size: 13px;
+  color: var(--text-slate-muted);
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   STATUS PILL REMAPPED FOR PREMIUM INSULATED LUXURY FILLINGS
+   ========================================================================== */
+.record-status-pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--status-orange-bg);
+  color: var(--status-orange-text);
+  border: 1px solid rgba(249, 115, 22, 0.15);
+  letter-spacing: -0.01em;
+}
+
+/* High Contrast Confirmed Status Layout mapping */
+.status-confirmed-green {
+  color: var(--app-green) !important;
+  background-color: var(--app-green-bg) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+}
+
+/* High Contrast Failed Status Layout mapping */
+.status-failed-red {
+  color: var(--app-red) !important;
+  background-color: var(--app-red-bg) !important;
+  border: 1px solid rgba(239, 68, 68, 0.15) !important;
+}
+
+/* Media query updates scaling layout padding rules for tighter displays */
+@media (max-width: 480px) {
+  .records-content-container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* ================= MODAL OVERLAY ================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+/* ================= MODAL CARD ================= */
+.modal-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 24px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= HEADER ================= */
+.sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sheet-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.close-sheet {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ================= INNER CARD ================= */
+.slim-card {
+  background: #f7f7f7;
+  border-radius: 18px;
+  padding: 18px;
+  margin-bottom: 25px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* ================= PRODUCT ROW ================= */
+.product-main-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.check-icon-container {
+  width: 48px;
+  height: 48px;
+  background: #2D6BEF;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: white;
+  color: #000000;
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= PRODUCT DETAILS ================= */
+.product-details strong {
+  font-size: 17px;
+  font-weight: 700;
+  display: block;
+  color: #111;
+}
+
+.product-details p {
+  font-size: 14px;
+  color: #444;
+  margin-top: 3px;
+}
+
+/* ================= DIVIDER ================= */
+.divider-line {
+  height: 1px;
+  background: #e5e5e5;
+  margin: 14px 0;
+}
+
+/* ================= BALANCE ================= */
+.account-balance-row {
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* ================= PURCHASE BUTTON ================= */
+.purchase-btn {
+  background: #2D6BEF;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  box-shadow: 0 6px 15px rgba(47,72,236,0.4);
+  transition: transform 0.15s ease;
+}
+
+.purchase-btn:active {
+  transform: scale(0.95);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width:480px){
+
+.modal-card{
+padding:20px;
+}
+
+.sheet-title{
+font-size:20px;
+}
+
+.product-details strong{
+font-size:16px;
+}
+
+.product-details p,
+.account-balance-row{
+font-size:13px;
+}
+
+.purchase-btn{
+font-size:14px;
+padding:10px 22px;
+}
+
+}
+
+
+
+
+:root {
+  /* Deeper, more vibrant Neon-Luxury Gold */
+  --gold-neon: #D4AF37; 
+  --bg-main: #FFFFFF;
+}
+
+.plans-header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 30px 20px;
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding doesn't increase width */
+}
+
+.plans-title-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  justify-content: center;
+  /* This prevents the text from wrapping to a new line */
+  white-space: nowrap; 
+}
+
+.line-deco {
+  height: 1.5px;
+  width: 40px;
+  background: var(--gold-neon);
+  box-shadow: 0 0 8px var(--gold-neon);
+  /* Prevents the lines from being squashed too small */
+  flex-shrink: 0; 
+}
+
+.product-section-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.1em;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.plans-info-pill, .plans-rate-pill {
+  border: 1.5px solid var(--gold-neon);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gold-neon);
+  letter-spacing: 0.05em;
+  background: rgba(212, 175, 55, 0.08);
+  /* Neon depth effect */
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+}
+
+.plans-rate-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.rate-icon { width: 14px; height: 14px; color: var(--gold-neon); }
+
+
+
+/* ================= PAGE WRAPPER ================= */
+.investment-page {
+  background: #070706; /* Liquid Obsidian Background Canvas */
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start !important; 
+  align-items: stretch; 
+  overflow-y: auto;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #FFFFFF;
+}
+
+/* ================= CLEAN LIGHT TOP NAV BAR ================= */
+.investment-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #070706; /* Solid dark header line wrapper */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  border-bottom: 1px solid #141311; /* Hairline dark divider edge */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.investment-header h2 {
+  margin: 0;
+  font-size: 16px; 
+  font-weight: 600;
+  color: #FFFFFF; /* Sharp crisp white title text */
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Clean Back Button Navigation Icon Link */
+.investment-back-btn {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #3B82F6; /* Switched from blue to Luxury Gold accent */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+/* ================= SUB-HEADER OVERVIEW PANEL ================= */
+.investment-sub-header {
+  /* 60px for fixed header height + 24px extra top padding space = 84px */
+  padding: 84px 16px 16px 16px; 
+  background: #070706; /* Unified liquid obsidian flow */
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid #141311;
+}
+
+.investment-sub-header h1 {
+  margin: 0;
+  font-size: 22px; 
+  font-weight: 700;
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.investment-sub-header p {
+  margin: 4px 0 0 0;
+  font-size: 13px; 
+  color: #9E998E; /* Warm tint muted text */
+  line-height: 1.4;
+}
+
+/* ================= CARD WRAPPER & STREAM TILES ================= */
+.card-wrapper {
+  padding: 20px 16px 40px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+.investment-filter-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  overflow-x: auto; 
+  padding-bottom: 4px;
+  margin-top: 14px;
+}
+
+/* Hide native desktop browser scrollbars inside navigation filter row wrappers */
+.investment-filter-row::-webkit-scrollbar {
+  display: none;
+}
+
+.inv-filter-btn {
+  background: #131211; /* Charcoal-Onyx standard state tab background */
+  color: #9E998E; /* Warm secondary text color */
+  border: 1px solid rgba(234, 206, 143, 0.04); 
+  padding: 8px 20px;
+  border-radius: 24px; 
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease-in-out;
+}
+
+/* 🚀 ACTIVE SELECTED TAB STATE - SWITCHED TO SIGNATURE LUXURY GOLD */
+.inv-filter-btn.active {
+  background: #3B82F6; /* Solid Luxury Gold focus */
+  color: #070706; /* Dark text for clean luxury contrast */
+  border-color: #3B82F6;
+  box-shadow: 0 4px 14px rgba(234, 206, 143, 0.2); /* Sleek soft gold shadow */
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --gold-primary: #3B82F6;
+  --gold-secondary: #9CA3AF;
+  --dark-black: #FFFFFF;
+  --dark-gray: #F9FAFB;
+  --charcoal: #2A2825;
+}
+
+#dynamicProductList {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 10px !important;
+  padding: 10px !important;
+  /* INCREASE THIS VALUE if your nav bar is taller */
+  padding-bottom: 120px !important; 
+  background: var(--dark-black) !important;
+  width: 100% !important;
+  box-sizing: border-box;
+  /* Add this to ensure the container stretches to the full height */
+  min-height: 100vh; 
+}
+
+.mx-product-card {
+  background-color: #000000 !important;
+  border: 1px solid var(--charcoal) !important;
+  border-radius: 12px !important;
+  padding: 10px !important; /* Reduced padding */
+  display: flex !important;
+  flex-direction: column !important;
+  font-family: 'Inter', sans-serif !important;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 8px !important;
+}
+
+.mx-card-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+/* Header & Badge */
+.mx-card-header-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mx-plan-name {
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  color: #3B82F6 !important;
+  margin: 0 !important;
+}
+
+.mx-duration-badge {
+  background: rgba(188, 144, 79, 0.15);
+  color: var(--gold-primary);
+  font-size: 8px !important;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 12px;
+}
+
+/* Compact Price Section */
+.mx-price-section { display: flex; flex-direction: column; gap: 0; }
+.mx-price-label { font-size: 9px !important; color: var(--gold-secondary); text-transform: uppercase; }
+.mx-main-price { font-size: 14px !important; font-weight: 800 !important; color: #3B82F6 !important; line-height: 1.2; }
+
+/* Compact Info Grid */
+.mx-info-grid { display: flex; flex-direction: column; gap: 4px; }
+.mx-grid-cell {
+  background-color: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 8px;
+  padding: 5px 8px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mx-cell-label { font-size: 9px !important; color: var(--gold-secondary); }
+.mx-cell-value { font-size: 10px !important; font-weight: 700; color: #3B82F6; text-align: right; line-height: 1.1; }
+.mx-gold-glow { color: var(--gold-primary) !important; }
+
+/* Compact Button */
+.mx-add-to-portfolio-btn {
+  width: 100% !important;
+  background: var(--gold-primary) !important;
+  color: #000 !important;
+  padding: 8px !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 2px !important;
+}
+
+
+.vip-divider {
+    grid-column: span 2; /* Spans across the full width */
+    text-align: center;
+    padding: 40px 10px;
+    margin: 20px 0;
+    background: radial-gradient(circle, #1a1a1a 0%, #070706 100%);
+    border: 1px solid var(--gold-primary);
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.vip-text {
+    color: var(--gold-primary);
+    font-size: 20px;
+    letter-spacing: 4px;
+    margin: 0;
+    text-transform: uppercase;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px #3B82F6; }
+    to { text-shadow: 0 0 20px #3B82F6; }
+}
+
+.vip-shine {
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(188, 144, 79, 0.1), transparent);
+    animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.mx-add-to-portfolio-btn:disabled {
+  background: #666 !important; /* Grey out the button */
+  pointer-events: none;
+}
+
+.mx-add-to-portfolio-btn span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+
+/* ── STUDENT HERO CARD ───────────────────────────────────────────── */
+.mx-student-card {
+  grid-column: span 2;
+  position: relative;
+  background: linear-gradient(135deg, #1a1510, #0f0e0c);
+  border: 1px solid var(--gold-primary);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+/* Animated gold shimmer behind card */
+.mx-student-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top left, rgba(188,144,79,0.12) 0%, transparent 60%),
+              radial-gradient(ellipse at bottom right, rgba(188,144,79,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.mx-student-inner {
+  position: relative;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mx-student-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mx-student-badge {
+  background: rgba(188,144,79,0.15);
+  border: 1px solid rgba(188,144,79,0.3);
+  color: var(--gold-primary);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: .5px;
+}
+
+.mx-student-cycle {
+  background: rgba(188,144,79,0.1);
+  color: var(--gold-primary);
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
+.mx-student-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.mx-student-tagline {
+  font-size: 11px;
+  color: var(--gold-secondary);
+  line-height: 1.5;
+}
+
+/* Stats row */
+.mx-student-stats {
+  display: flex;
+  align-items: center;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 10px;
+  gap: 0;
+}
+
+.mx-student-stat {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mx-student-stat-label {
+  font-size: 9px;
+  color: var(--gold-secondary);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.mx-student-stat-val {
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.mx-student-stat-val.gold {
+  color: var(--gold-primary);
+}
+
+.mx-student-divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(255,255,255,0.08);
+  flex-shrink: 0;
+}
+
+/* Button */
+.mx-student-btn {
+  width: 100% !important;
+  background: #3B82F6 !important;
+  color: #000 !important;
+  padding: 12px !important;
+  border: none !important;
+  border-radius: 10px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: .5px;
+  margin-top: 4px !important;
+  transition: .2s !important;
+}
+
+.mx-student-btn:hover {
+  background: #a87a3f !important;
+}
+
+.mx-student-btn:active {
+  transform: scale(.98) !important;
+}
+
+
+#toast-container {
+    position: fixed !important;
+    top: 80px !important;
+    right: 20px !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+.modern-toast {
+    background: #141312 !important; 
+    color: #ffffff !important;
+    padding: 14px 20px !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5) !important;
+    border: 1px solid #2A2825 !important;
+    
+    /* Soft Transition Logic */
+    opacity: 0 !important;
+    transform: translateY(-20px) scale(0.95) !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.modern-toast.show {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+}
+
+.toast-icon {
+    font-size: 18px !important;
+    color: #3B82F6 !important; /* Gold primary */
+}
+
+/* Specific type colors */
+.toast-success .toast-icon { 
+    color: #4ade80 !important; 
+}
+
+.toast-error .toast-icon { 
+    color: #f87171 !important; 
+}
+
+/* This targets the <a> tag wrapping your settings item */
+a.settings-link-wrapper {
+    text-decoration: none !important; /* Forces the underline to disappear */
+    color: inherit !important;        /* Forces the text to stay your app's color */
+    display: block;                   /* Makes the whole row clickable */
+    -webkit-tap-highlight-color: transparent; /* Removes the gray box on mobile tap */
+}
+
+/* Optional: Add a slight hover or active effect so the user knows it's a button */
+a.settings-link-wrapper:active {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+
+/* ================= EMPTY STATE UI (ATM CARD STYLE) ================= */
+.empty-state-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  padding: 45px 24px; 
+  margin: 15px;
+  text-align: center;
+  
+  /* ATM Card Design: Dark Premium Matte Horizon Layout */
+  background: #131211; /* Charcoal-Onyx Panel base */
+  border-radius: 16px; 
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(188, 144, 79, 0.08); /* Luxurious subtle gold rim */
+  
+  width: auto; 
+  max-width: 100%; 
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Optional ATM Smart Chip decoration element effect to perfect the card aesthetic */
+.empty-state-container::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 38px;
+  height: 28px;
+  background: linear-gradient(135deg, #3B82F6 0%, #b89b5e 100%);
+  opacity: 0.15; /* Extremely subtle gold microchip accent shape */
+  border-radius: 4px;
+}
+
+.empty-icon-circle {
+  width: 64px; 
+  height: 64px;
+  background: #1C1A18; /* Dark inner core container socket */
+  border: 1px solid rgba(188, 144, 79, 0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 10px; /* Balance space with the card accent chip decoration layer */
+}
+
+.empty-icon-circle i {
+  font-size: 24px;
+  color: #3B82F6; /* Signature High Contrast Gold */
+}
+
+.empty-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF; /* High contrast crisp white title */
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.empty-subtitle {
+  margin: 10px 0 0 0; /* Cleared large bottom margin room since button was removed */
+  font-size: 13px;
+  color: #9E998E; /* Smooth warm secondary description tone */
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 300px; 
+}
+
+:root {
+  /* System Theme Tokens Mapping */
+  --bg-main: #FFFFFF;       /* Premium Liquid Obsidian Base Sheet Background */
+  --bg-card-surface: #FFFFFF;      /* Polished Surface Sockets */
+  --charcoal-border: #24221F;      /* Razor Crisp Separator Hairline Metric */
+  --gold-primary: #3B82F6;         /* Glistening Luxury Core Gold Accent */
+  --gold-muted: #9CA3AF;           /* Fine Subtext Tracking Gold Alpha */
+  
+  --text-light: #3B82F6;
+  --text-muted: #A39E93;
+}
+
+/* FULLSCREEN LIQUID OBSIDIAN OVERLAY */
+#pageLoader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-main);      /* Matches the deep sleek app canvas background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Container centered over a dark backdrop */
+.cyber-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  background-color: transparent; /* YouTube exact dark-mode background */
+  font-family: "Roboto", Arial, sans-serif; /* YouTube system font */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Loader Content Wrapper */
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+}
+
+/* ==========================================================================
+   YOUTUBE RED MATERIAL SPINNER
+   ========================================================================== */
+.neon-ring {
+  position: relative;
+  width: 40px; /* Standard compact UI loader size */
+  height: 40px;
+  margin-bottom: 24px;
+}
+
+/* Outer ring handles the continuous rotation */
+.ring-spinner-outer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3.5px solid rgba(255, 255, 255, 0.1); /* Subtle track */
+  border-top-color: #ff0000; /* YouTube Premium / Brand Red */
+  border-radius: 50%;
+  animation: yt-spin 0.8s linear infinite;
+}
+
+/* Inner ring acts as an accent layer for smooth depth */
+.ring-spinner-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3.5px solid transparent;
+  border-bottom-color: #ffffff; /* Secondary subtle white highlight */
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: yt-spin 1.4s linear infinite reverse;
+}
+
+/* ==========================================================================
+   TEXT (SKELETON LOADER STYLE)
+   ========================================================================== */
+.processing-title {
+  color: #aaaaaa; /* YouTube secondary text color */
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 16px 0;
+  letter-spacing: 0.2px;
+  text-align: center;
+  animation: yt-text-pulse 1.5s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   PULSING SKELETON BAR (Video Loading Bar)
+   ========================================================================== */
+.scan-line-wrapper {
+  position: relative;
+  width: 140px;
+  height: 4px;
+  background-color: #272727; /* Dark placeholder channel skeleton */
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Linear shimmer running across the bar */
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    #272727 0%, 
+    #3f3f3f 50%, 
+    #272727 100%
+  );
+  background-size: 200% 100%;
+  animation: yt-shimmer 1.5s infinite linear;
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+
+/* Clean, standard spinning */
+@keyframes yt-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* YouTube ambient skeleton shimmer */
+@keyframes yt-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Soft text pulse */
+@keyframes yt-text-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+
+/* Reviews Ticker Wrapper - fills remaining viewport height */
+.reviews-ticker-wrapper {
+  width: 100%;
+  height: calc(100vh - 250px); /* adjust based on your header/image height */
+  overflow: hidden;
+  border-radius: 12px;
+  background: #ffffff; /* blue background */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Ticker container */
+.reviews-ticker {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  animation: scrollReviews 300s linear infinite; /* very slow scroll */
+}
+
+/* Each review item */
+.review-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 15px;
+  background: #ffffff; /* white card background */
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  min-height: 80px; /* make each review taller */
+}
+
+/* User logo / icon */
+.review-item .user-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0; /* keeps image from shrinking */
+}
+
+/* Review text */
+.review-item .review-text {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #79a2e5; /* blue text */
+}
+
+/* Smooth scroll animation */
+@keyframes scrollReviews {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+
+
+/* Full-width black box around dashboard image */
+.dashboard-image-box-full {
+    width: 100%;                 /* full width of parent container */
+    background-color: #000000;   /* black box (you can change to green) */
+    padding: 15px;               /* space inside box for image */
+    border-radius: 16px;         /* rounded corners */
+    box-sizing: border-box;
+    text-align: center;          /* center image */
+    margin: 20px 0;              /* vertical spacing only, no horizontal shift */
+    overflow: hidden;            /* prevent any overflow */
+}
+
+/* Dashboard image inside the box */
+.dashboard-image {
+    max-width: 100%;             /* fit inside green box */
+    height: auto;
+    border-radius: 12px;         /* slightly rounded corners */
+    display: inline-block;       /* center properly */
+}
+
+
+
+
+/* ===== PAYMENT TYPE ===== */
+.payment-type {
+  margin: 15px 0;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  font-family: sans-serif;
+}
+
+.payment-type label {
+  display: block;
+  margin-bottom: 6px;
+  color: #f4b400; /* green label */
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* The clickable box */
+.payment-box {
+  width: 100%;
+  background: #ffffff;          /* white box */
+  color: #000000;               /* green text */
+  border: 1px solid #c0c0c0;   /* silver edge */
+  border-radius: 12px;
+  padding: 12px 15px;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.payment-box:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.payment-box .arrow {
+  font-size: 14px;
+}
+
+
+
+/* Options list hidden by default */
+.payment-options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 48px; /* below the box */
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #c0c0c0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: none; /* hidden initially */
+  z-index: 100;
+}
+
+.payment-options li {
+  padding: 10px 15px;
+  cursor: pointer;
+  color: #000000;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.payment-options li:hover {
+  background: rgba(15,157,88,0.1); /* light green hover */
+}
+
+
+/* Selected Amount Display */
+.selected-amount {
+  font-weight: bold;
+  color: #000000;   /* black */
+  font-size: 20px;
+  margin-top: 8px;
+  text-align: center;
+}
+
+
+
+#paymentCountdown {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ff0707; /* green */
+}
+
+
+#paymentStatusMessage {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  display: none;
+}
+
+
+.status-pending {
+  background: #f0fff6;
+  color: #d29922;
+}
+
+.status-approved {
+  background: #e6fff1;
+  color: #1faa59;
+}
+
+.status-declined {
+  background: #ffecec;
+  color: #d62828;
+}
+
+.status-timeout {
+  background: #fff6e5;
+  color: #c77700;
+}
+
+
+/* ================= PROTECTED UI ================= */
+#dashboard,
+#bottomNav {
+  display: none;
+}
+
+
+/* ================= FLOATING NAV CONTROL (BLACK + GOLD) ================= */
+#navToggle {
+  position: fixed;
+  bottom: 90px; /* sits above bottom nav */
+  right: 20px;
+
+  width: 64px;
+  height: 44px;
+  border-radius: 999px;
+
+  background: rgba(0, 0, 0, 0.9); /* black semi-transparent */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  color: #D4AF37;  /* gold text/icon */
+  font-size: 22px;
+
+  border: 1px solid rgba(212,175,55,0.35); /* subtle gold border */
+  cursor: pointer;
+
+  z-index: 2001;
+  display: none; /* auth decides */
+
+  box-shadow: 0 8px 18px rgba(212,175,55,0.25); /* subtle gold shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Show toggle ONLY when logged in */
+body.logged-in #navToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover / press feedback */
+#navToggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(212,175,55,0.35); /* stronger gold glow */
+}
+
+#navToggle:active {
+  transform: scale(0.95);
+}
+
+
+/* ================= BOTTOM NAV ================= */
+
+/* Hidden forever by default */
+#bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  z-index: 2000;
+}
+
+/* Visible ONLY when toggled */
+#bottomNav.open {
+  transform: translateY(0);
+}
+
+
+/* ================= FLOATING TELEGRAM (PROFILE PAGE) ================= */
+.profile-page .telegram-float-profile {
+  position: fixed;
+  bottom: 90px;              /* above bottom nav */
+  right: 16px;               /* move to right */
+  z-index: 9999;
+
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+
+  background: #0088cc;       /* Telegram blue */
+  color: #ffffff;            /* white icon/text */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 26px;
+  text-decoration: none;
+
+  box-shadow: 0 8px 20px rgba(0,136,204,0.35);  /* subtle blue shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover / tap */
+.profile-page .telegram-float-profile:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 28px rgba(0,136,204,0.45); /* stronger blue shadow */
+}
+
+/* Mobile safe */
+@media (max-width: 480px) {
+  .profile-page .telegram-float-profile {
+    bottom: 100px;
+    right: 12px;            /* adjust right for mobile */
+  }
+}
+
+
+/* Toast Container - Positioned to the Top Right */
+#toast-container {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    z-index: 10001;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: auto;
+    max-width: 320px;
+    pointer-events: none;
+}
+
+/* Individual Toast Styling - White & Blue Theme */
+.modern-toast {
+    pointer-events: auto;
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: #ffffff; /* White Background */
+    color: #1a1a1a;      /* Dark text for readability */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Softer shadow */
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    
+    /* Blue Border Theme */
+    border: 1px solid rgba(0, 51, 153, 0.1); 
+    border-left: 5px solid #003399;          /* Solid Blue Accent */
+    
+    /* Animation */
+    transform: translateX(120%); 
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+}
+
+.modern-toast.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Blue Accents for Icons */
+.toast-icon {
+    font-size: 18px;
+    color: #003399; /* Makes every icon Blue */
+}
+
+/* Status Borders */
+.toast-success { border-left-color: #003399; } /* Primary Blue */
+.toast-error { border-left-color: #ff4d4d; }   /* Kept Red for contrast */
+.toast-warning { border-left-color: #f6ad55; } /* Amber for Warning */
+
+#signupContainer,
+#loginContainer {
+  display: none !important;
+}
